@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E59FAF021C41395200754CA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF011C41395200754CA3 /* main.m */; };
-		E59FAF051C41395200754CA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF041C41395200754CA3 /* AppDelegate.m */; };
-		E59FAF081C41395200754CA3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF071C41395200754CA3 /* ViewController.m */; };
+		E59FAF051C41395200754CA3 /* SWAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF041C41395200754CA3 /* SWAAppDelegate.m */; };
+		E59FAF081C41395200754CA3 /* SWAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF071C41395200754CA3 /* SWAViewController.m */; };
 		E59FAF0B1C41395200754CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59FAF091C41395200754CA3 /* Main.storyboard */; };
 		E59FAF0E1C41395200754CA3 /* SimpleWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF0C1C41395200754CA3 /* SimpleWeatherApp.xcdatamodeld */; };
 		E59FAF101C41395200754CA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E59FAF0F1C41395200754CA3 /* Assets.xcassets */; };
@@ -30,10 +30,10 @@
 /* Begin PBXFileReference section */
 		E59FAEFD1C41395200754CA3 /* SimpleWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59FAF011C41395200754CA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E59FAF031C41395200754CA3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E59FAF041C41395200754CA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E59FAF061C41395200754CA3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E59FAF071C41395200754CA3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E59FAF031C41395200754CA3 /* SWAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAAppDelegate.h; sourceTree = "<group>"; };
+		E59FAF041C41395200754CA3 /* SWAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAAppDelegate.m; sourceTree = "<group>"; };
+		E59FAF061C41395200754CA3 /* SWAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAViewController.h; sourceTree = "<group>"; };
+		E59FAF071C41395200754CA3 /* SWAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAViewController.m; sourceTree = "<group>"; };
 		E59FAF0A1C41395200754CA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E59FAF0D1C41395200754CA3 /* SimpleWeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleWeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		E59FAF0F1C41395200754CA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,10 +83,10 @@
 		E59FAEFF1C41395200754CA3 /* SimpleWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				E59FAF031C41395200754CA3 /* AppDelegate.h */,
-				E59FAF041C41395200754CA3 /* AppDelegate.m */,
-				E59FAF061C41395200754CA3 /* ViewController.h */,
-				E59FAF071C41395200754CA3 /* ViewController.m */,
+				E59FAF031C41395200754CA3 /* SWAAppDelegate.h */,
+				E59FAF041C41395200754CA3 /* SWAAppDelegate.m */,
+				E59FAF061C41395200754CA3 /* SWAViewController.h */,
+				E59FAF071C41395200754CA3 /* SWAViewController.m */,
 				E59FAF091C41395200754CA3 /* Main.storyboard */,
 				E59FAF0F1C41395200754CA3 /* Assets.xcassets */,
 				E59FAF111C41395200754CA3 /* LaunchScreen.storyboard */,
@@ -215,8 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E59FAF0E1C41395200754CA3 /* SimpleWeatherApp.xcdatamodeld in Sources */,
-				E59FAF081C41395200754CA3 /* ViewController.m in Sources */,
-				E59FAF051C41395200754CA3 /* AppDelegate.m in Sources */,
+				E59FAF081C41395200754CA3 /* SWAViewController.m in Sources */,
+				E59FAF051C41395200754CA3 /* SWAAppDelegate.m in Sources */,
 				E59FAF021C41395200754CA3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +406,7 @@
 				E59FAF241C41395200754CA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E59FAF251C41395200754CA3 /* Build configuration list for PBXNativeTarget "SimpleWeatherAppTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +415,7 @@
 				E59FAF271C41395200754CA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

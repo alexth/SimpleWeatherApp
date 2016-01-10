@@ -6,13 +6,13 @@
 //  Copyright © 2016 Alex Golub. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SWAViewController.h"
 
-@interface ViewController ()
+@interface SWAViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SWAViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

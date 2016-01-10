@@ -6,13 +6,13 @@
 //  Copyright © 2016 Alex Golub. All rights reserved.
 //
 
-#import "AppDelegate.h"
+#import "SWAAppDelegate.h"
 
-@interface AppDelegate ()
+@interface SWAAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation SWAAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

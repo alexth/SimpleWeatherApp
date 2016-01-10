@@ -5,6 +5,9 @@
 
 target 'SimpleWeatherApp' do
 
+pod "AFNetworking", '~> 2.0'
+pod "AFNetworkingLogger", :git => 'https://github.com/stanislaw/AFNetworkingLogger'
+
 end
 
 target 'SimpleWeatherAppTests' do

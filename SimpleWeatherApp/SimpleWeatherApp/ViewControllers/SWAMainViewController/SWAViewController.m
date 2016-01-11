@@ -30,6 +30,7 @@ static const CGFloat kOneSpeakerCellHeight = 120.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 #pragma mark - TableView DataSource

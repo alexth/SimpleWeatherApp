@@ -1,5 +1,5 @@
 //
-//  CDVRootRequest.h
+//  SWARootRequest.h
 //
 //  Created by alex on 26.10.15.
 //  Copyright © 2015 Codeveyor. All rights reserved.
@@ -11,7 +11,7 @@
 
 typedef void (^RequestFailureBlock)(NSError *error);
 
-@interface CDVRootRequest : NSObject
+@interface SWARootRequest : NSObject
 {
     NSURL *_url;
     NSString *_formDataURLString;
@@ -32,7 +32,7 @@ typedef void (^RequestFailureBlock)(NSError *error);
 
 @end
 
-@interface CDVRootRequest (Protected)
+@interface SWARootRequest (Protected)
 
 - (void)parseResult:(id)JSON;
 - (void)downloadedImage:(UIImage *)image;

@@ -6,9 +6,9 @@
 //  Copyright © 2016 Alex Golub. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "SWARootViewController.h"
 
-@interface SWAViewController : UIViewController
+@interface SWAViewController : SWARootViewController
 
 @end
 

@@ -17,4 +17,6 @@
 
 @implementation SWAMainTableViewCell
 
+#pragma mark - Setup
+
 @end

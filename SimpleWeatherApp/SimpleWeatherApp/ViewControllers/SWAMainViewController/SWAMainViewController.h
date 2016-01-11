@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SWAMainViewController.h
 //  SimpleWeatherApp
 //
 //  Created by Alex Golub on 1/9/16.
@@ -8,7 +8,7 @@
 
 #import "SWARootViewController.h"
 
-@interface SWAViewController : SWARootViewController
+@interface SWAMainViewController : SWARootViewController
 
 @end
 

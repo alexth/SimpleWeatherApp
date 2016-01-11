@@ -1,14 +1,14 @@
 //
-//  ViewController.m
+//  SWAMainViewController.m
 //  SimpleWeatherApp
 //
 //  Created by Alex Golub on 1/9/16.
 //  Copyright © 2016 Alex Golub. All rights reserved.
 //
 
-#import "SWAViewController.h"
+#import "SWAMainViewController.h"
 
-@interface SWAViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface SWAMainViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIButton *citiesButton;
 @property (nonatomic, weak) IBOutlet UILabel *infoLabel;
@@ -21,28 +21,28 @@
 @end
 
 static NSString * const kLoginPopupNavigationController = @"loginPopupNavigationController";
-static const CGFloat kOneSpeakerCellHeight = 120.0f;
+static const NSUInteger kMainTableViewSectionsCount = 1;
+static const CGFloat kMainTableViewCellHeight = 50.0f;
 
-@implementation SWAViewController
+@implementation SWAMainViewController
 
 #pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self refreshData];
 }
 
 #pragma mark - TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return kMainTableViewSectionsCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return [self.qvoutsArray count];
     return 1;
 }
 
@@ -68,27 +68,9 @@ static const CGFloat kOneSpeakerCellHeight = 120.0f;
 
 #pragma mark - TableView Delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    self.selectedQvout = self.qvoutsArray[indexPath.row];
-//    
-//    [self performSegueWithIdentifier:kReviewQvoutSegue sender:self];
-}
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    QVTQvoutDB *qvout = self.qvoutsArray[indexPath.row];
-//    
-//    if ([qvout.qvoutSpeakers count] == 1)
-//    {
-//        return kOneSpeakerCellHeight;
-//    }
-//    else
-//    {
-//        return kManySpeakersCellHeight;
-//    }
-    
-    return CGFLOAT_MIN;
+    return kMainTableViewCellHeight;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -104,5 +86,15 @@ static const CGFloat kOneSpeakerCellHeight = 120.0f;
 }
 
 #pragma mark - Utils
+
+- (void)applyStyle
+{
+    
+}
+
+- (void)refreshData
+{
+    
+}
 
 @end

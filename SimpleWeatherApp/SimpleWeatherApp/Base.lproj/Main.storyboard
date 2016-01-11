@@ -65,8 +65,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PRP-uy-fKG">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="1g1-dC-4RB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="1g1-dC-4RB">
+                            <connections>
+                                <segue destination="xbM-ny-NNP" kind="show" id="ISF-RT-mMY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mainTableView" destination="17L-d0-96n" id="JPG-O8-ji0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

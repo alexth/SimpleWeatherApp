@@ -12,7 +12,7 @@
 		E54CC0D01C43C989003D1229 /* SWADefaultRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */; };
 		E54CC0D41C43C9C9003D1229 /* SWARootRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0D31C43C9C9003D1229 /* SWARootRequest.m */; };
 		E54CC0D81C43CA4A003D1229 /* SWAWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */; };
-		E559DEAA1C42C5DE00A6AD49 /* SWAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E559DEA91C42C5DE00A6AD49 /* SWAViewController.m */; };
+		E54CC0DC1C43D0E8003D1229 /* SWAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0DB1C43D0E8003D1229 /* SWAViewController.m */; };
 		E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E559DEAC1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld */; };
 		E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */; };
 		E59FAF021C41395200754CA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF011C41395200754CA3 /* main.m */; };
@@ -45,9 +45,9 @@
 		E54CC0D31C43C9C9003D1229 /* SWARootRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWARootRequest.m; sourceTree = "<group>"; };
 		E54CC0D61C43CA4A003D1229 /* SWAWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAWebCore.h; sourceTree = "<group>"; };
 		E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAWebCore.m; sourceTree = "<group>"; };
+		E54CC0DA1C43D0E8003D1229 /* SWAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAViewController.h; sourceTree = "<group>"; };
+		E54CC0DB1C43D0E8003D1229 /* SWAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAViewController.m; sourceTree = "<group>"; };
 		E559DEA01C42C0D100A6AD49 /* SWA-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWA-prefix.pch"; sourceTree = "<group>"; };
-		E559DEA81C42C5DE00A6AD49 /* SWAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAViewController.h; sourceTree = "<group>"; };
-		E559DEA91C42C5DE00A6AD49 /* SWAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAViewController.m; sourceTree = "<group>"; };
 		E559DEAB1C42C64400A6AD49 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 		E559DEAD1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleWeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		E559DEAF1C42C72A00A6AD49 /* SWADatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWADatabaseManager.h; sourceTree = "<group>"; };
@@ -128,11 +128,19 @@
 			path = SWAWebCore;
 			sourceTree = "<group>";
 		};
+		E54CC0D91C43D0D5003D1229 /* SWAMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0DA1C43D0E8003D1229 /* SWAViewController.h */,
+				E54CC0DB1C43D0E8003D1229 /* SWAViewController.m */,
+			);
+			path = SWAMainViewController;
+			sourceTree = "<group>";
+		};
 		E559DEA11C42C33F00A6AD49 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E559DEA81C42C5DE00A6AD49 /* SWAViewController.h */,
-				E559DEA91C42C5DE00A6AD49 /* SWAViewController.m */,
+				E54CC0D91C43D0D5003D1229 /* SWAMainViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -399,13 +407,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */,
-				E559DEAA1C42C5DE00A6AD49 /* SWAViewController.m in Sources */,
 				E59FAF051C41395200754CA3 /* SWAAppDelegate.m in Sources */,
 				E54CC0D41C43C9C9003D1229 /* SWARootRequest.m in Sources */,
 				E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */,
 				E59FAF021C41395200754CA3 /* main.m in Sources */,
 				E54CC0D01C43C989003D1229 /* SWADefaultRequest.m in Sources */,
 				E54CC0D81C43CA4A003D1229 /* SWAWebCore.m in Sources */,
+				E54CC0DC1C43D0E8003D1229 /* SWAViewController.m in Sources */,
 				E54CC0CD1C43C952003D1229 /* SWARequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

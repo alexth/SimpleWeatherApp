@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5C3E5EA114FCD9591975D5EA /* libPods-SimpleWeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B805A88498C608BC39A0DF3 /* libPods-SimpleWeatherApp.a */; };
+		E54CC0CD1C43C952003D1229 /* SWARequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0CC1C43C952003D1229 /* SWARequestManager.m */; };
+		E54CC0D01C43C989003D1229 /* SWADefaultRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */; };
+		E54CC0D41C43C9C9003D1229 /* SWARootRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0D31C43C9C9003D1229 /* SWARootRequest.m */; };
+		E54CC0D81C43CA4A003D1229 /* SWAWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */; };
 		E559DEAA1C42C5DE00A6AD49 /* SWAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E559DEA91C42C5DE00A6AD49 /* SWAViewController.m */; };
 		E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E559DEAC1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld */; };
 		E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */; };
@@ -33,6 +37,14 @@
 		5F4F9136EDE2BFE57A61DE1C /* Pods-SimpleWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleWeatherApp/Pods-SimpleWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7B805A88498C608BC39A0DF3 /* libPods-SimpleWeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SimpleWeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08D5610D7B9F28861FD2BEC /* Pods-SimpleWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleWeatherApp/Pods-SimpleWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
+		E54CC0CB1C43C952003D1229 /* SWARequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWARequestManager.h; sourceTree = "<group>"; };
+		E54CC0CC1C43C952003D1229 /* SWARequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWARequestManager.m; sourceTree = "<group>"; };
+		E54CC0CE1C43C989003D1229 /* SWADefaultRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWADefaultRequest.h; sourceTree = "<group>"; };
+		E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWADefaultRequest.m; sourceTree = "<group>"; };
+		E54CC0D21C43C9C9003D1229 /* SWARootRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWARootRequest.h; sourceTree = "<group>"; };
+		E54CC0D31C43C9C9003D1229 /* SWARootRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWARootRequest.m; sourceTree = "<group>"; };
+		E54CC0D61C43CA4A003D1229 /* SWAWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAWebCore.h; sourceTree = "<group>"; };
+		E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAWebCore.m; sourceTree = "<group>"; };
 		E559DEA01C42C0D100A6AD49 /* SWA-prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SWA-prefix.pch"; sourceTree = "<group>"; };
 		E559DEA81C42C5DE00A6AD49 /* SWAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAViewController.h; sourceTree = "<group>"; };
 		E559DEA91C42C5DE00A6AD49 /* SWAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAViewController.m; sourceTree = "<group>"; };
@@ -89,6 +101,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E54CC0CA1C43C929003D1229 /* SWADefaultRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0CE1C43C989003D1229 /* SWADefaultRequest.h */,
+				E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */,
+			);
+			path = SWADefaultRequest;
+			sourceTree = "<group>";
+		};
+		E54CC0D11C43C9A4003D1229 /* SWARootRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0D21C43C9C9003D1229 /* SWARootRequest.h */,
+				E54CC0D31C43C9C9003D1229 /* SWARootRequest.m */,
+			);
+			path = SWARootRequest;
+			sourceTree = "<group>";
+		};
+		E54CC0D51C43CA1F003D1229 /* SWAWebCore */ = {
+			isa = PBXGroup;
+			children = (
+				E54CC0D61C43CA4A003D1229 /* SWAWebCore.h */,
+				E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */,
+			);
+			path = SWAWebCore;
+			sourceTree = "<group>";
+		};
 		E559DEA11C42C33F00A6AD49 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +154,11 @@
 		E559DEA41C42C36400A6AD49 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E54CC0CB1C43C952003D1229 /* SWARequestManager.h */,
+				E54CC0CC1C43C952003D1229 /* SWARequestManager.m */,
+				E54CC0CA1C43C929003D1229 /* SWADefaultRequest */,
+				E54CC0D11C43C9A4003D1229 /* SWARootRequest */,
+				E54CC0D51C43CA1F003D1229 /* SWAWebCore */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -357,8 +401,12 @@
 				E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */,
 				E559DEAA1C42C5DE00A6AD49 /* SWAViewController.m in Sources */,
 				E59FAF051C41395200754CA3 /* SWAAppDelegate.m in Sources */,
+				E54CC0D41C43C9C9003D1229 /* SWARootRequest.m in Sources */,
 				E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */,
 				E59FAF021C41395200754CA3 /* main.m in Sources */,
+				E54CC0D01C43C989003D1229 /* SWADefaultRequest.m in Sources */,
+				E54CC0D81C43CA4A003D1229 /* SWAWebCore.m in Sources */,
+				E54CC0CD1C43C952003D1229 /* SWARequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +540,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleWeatherApp/SWA-prefix.pch";
 				INFOPLIST_FILE = SimpleWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeveyor.SimpleWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -506,6 +555,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SimpleWeatherApp/SWA-prefix.pch";
 				INFOPLIST_FILE = SimpleWeatherApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.codeveyor.SimpleWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

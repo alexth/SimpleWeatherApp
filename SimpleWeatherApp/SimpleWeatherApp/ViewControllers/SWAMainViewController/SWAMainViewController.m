@@ -8,9 +8,11 @@
 
 #import "SWAMainViewController.h"
 
+#import "SWAMainTableViewCell.h"
+
 @interface SWAMainViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UIButton *citiesButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *citiesButton;
 @property (nonatomic, weak) IBOutlet UILabel *infoLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *temperatureLabel;
@@ -20,7 +22,7 @@
 
 @end
 
-static NSString * const kLoginPopupNavigationController = @"loginPopupNavigationController";
+static NSString * const kMainTableViewCellIdentifier = @"mainTableViewCell";
 static const NSUInteger kMainTableViewSectionsCount = 1;
 static const CGFloat kMainTableViewCellHeight = 50.0f;
 
@@ -47,23 +49,10 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    QVTQvoutDB *qvout = self.qvoutsArray[indexPath.row];
-//    
-//    QVTQvoutFeedTableViewCell *cell = nil;
-//    if (qvout.qvoutSpeakers.count == 1)
-//    {
-//        cell = [tableView dequeueReusableCellWithIdentifier:kOneSpeakerCellIdentifier forIndexPath:indexPath];
-//    }
-//    else if (qvout.qvoutSpeakers.count > 1)
-//    {
-//        cell = [tableView dequeueReusableCellWithIdentifier:kManySpeakersCellIdentifier forIndexPath:indexPath];
-//    }
-//    [self configureCell:cell withQvout:qvout];
-//    
-//    return cell;
+{    
+    SWAMainTableViewCell *cell = (SWAMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kMainTableViewCellIdentifier forIndexPath:indexPath];
     
-    return nil;
+    return cell;
 }
 
 #pragma mark - TableView Delegate

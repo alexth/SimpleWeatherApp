@@ -27,7 +27,6 @@ static NSString * const kGETRequestMethod = @"GET";
 static NSString * const kPOSTRequestMethod = @"POST";
 static NSString * const kDELETERequestMethod = @"DELETE";
 static NSString * const kPATCHRequestMethod = @"PATCH";
-static NSString * const kServerURLAddress = @"url";
 
 @implementation SWAWebCore
 

@@ -34,12 +34,14 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
     return kCitiesListTableViewSectionsCount;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SWACitiesListTableViewCell *cell = (SWACitiesListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kCitiesListTableViewCellIdentifier forIndexPath:indexPath];
     
@@ -48,12 +50,14 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 
 #pragma mark - TableView Delegate
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView
+heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return kCitiesListTableViewCellHeight;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView
+heightForHeaderInSection:(NSInteger)section
 {
     return CGFLOAT_MIN;
 }

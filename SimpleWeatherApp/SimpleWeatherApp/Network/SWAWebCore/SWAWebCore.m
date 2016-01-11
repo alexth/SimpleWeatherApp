@@ -27,6 +27,8 @@ static NSString * const kGETRequestMethod = @"GET";
 static NSString * const kPOSTRequestMethod = @"POST";
 static NSString * const kDELETERequestMethod = @"DELETE";
 static NSString * const kPATCHRequestMethod = @"PATCH";
+static NSString * const kBadRequestErrorDomain = @"com.coveveyor.http_error_400";
+static const NSUInteger kBadRequestError = 400;
 
 @implementation SWAWebCore
 
@@ -247,11 +249,11 @@ static NSString * const kPATCHRequestMethod = @"PATCH";
         
         NSInteger errorCode = [operation.response statusCode];
 
-        if (errorCode == 400)
+        if (errorCode == kBadRequestError)
         {
 #warning - handle error
         }
-        NSError *httpError = [NSError errorWithDomain:@"com.coveveyor.http_error_400" code:errorCode userInfo:nil];
+        NSError *httpError = [NSError errorWithDomain:kBadRequestErrorDomain code:errorCode userInfo:nil];
         failure(operation, httpError);
     };
     

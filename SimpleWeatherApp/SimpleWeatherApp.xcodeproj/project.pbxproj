@@ -20,6 +20,10 @@
 		E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E559DEAC1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld */; };
 		E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */; };
 		E56AD8D51C469E0F00419D78 /* SWAForecastsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E56AD8D41C469E0F00419D78 /* SWAForecastsRequest.m */; };
+		E56AD8DB1C46A50300419D78 /* SWACityDB+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E56AD8D81C46A50300419D78 /* SWACityDB+CoreDataProperties.m */; };
+		E56AD8DC1C46A50300419D78 /* SWACityDB.m in Sources */ = {isa = PBXBuildFile; fileRef = E56AD8DA1C46A50300419D78 /* SWACityDB.m */; };
+		E56AD8E21C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E56AD8DF1C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.m */; };
+		E56AD8E31C46A56A00419D78 /* SWAForecastDB.m in Sources */ = {isa = PBXBuildFile; fileRef = E56AD8E11C46A56A00419D78 /* SWAForecastDB.m */; };
 		E59FAF021C41395200754CA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF011C41395200754CA3 /* main.m */; };
 		E59FAF051C41395200754CA3 /* SWAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF041C41395200754CA3 /* SWAAppDelegate.m */; };
 		E59FAF0B1C41395200754CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59FAF091C41395200754CA3 /* Main.storyboard */; };
@@ -67,6 +71,14 @@
 		E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWADatabaseManager.m; sourceTree = "<group>"; };
 		E56AD8D31C469E0F00419D78 /* SWAForecastsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAForecastsRequest.h; sourceTree = "<group>"; };
 		E56AD8D41C469E0F00419D78 /* SWAForecastsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAForecastsRequest.m; sourceTree = "<group>"; };
+		E56AD8D71C46A50300419D78 /* SWACityDB+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SWACityDB+CoreDataProperties.h"; path = "SWACityDB/SWACityDB+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E56AD8D81C46A50300419D78 /* SWACityDB+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SWACityDB+CoreDataProperties.m"; path = "SWACityDB/SWACityDB+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E56AD8D91C46A50300419D78 /* SWACityDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWACityDB.h; path = SWACityDB/SWACityDB.h; sourceTree = "<group>"; };
+		E56AD8DA1C46A50300419D78 /* SWACityDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWACityDB.m; path = SWACityDB/SWACityDB.m; sourceTree = "<group>"; };
+		E56AD8DE1C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SWAForecastDB+CoreDataProperties.h"; path = "SWAForecastDB/SWAForecastDB+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E56AD8DF1C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SWAForecastDB+CoreDataProperties.m"; path = "SWAForecastDB/SWAForecastDB+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E56AD8E01C46A56A00419D78 /* SWAForecastDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWAForecastDB.h; path = SWAForecastDB/SWAForecastDB.h; sourceTree = "<group>"; };
+		E56AD8E11C46A56A00419D78 /* SWAForecastDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWAForecastDB.m; path = SWAForecastDB/SWAForecastDB.m; sourceTree = "<group>"; };
 		E59FAEFD1C41395200754CA3 /* SimpleWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59FAF011C41395200754CA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E59FAF031C41395200754CA3 /* SWAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAAppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +247,8 @@
 				E559DEAC1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld */,
 				E559DEAF1C42C72A00A6AD49 /* SWADatabaseManager.h */,
 				E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */,
+				E56AD8D61C46A4D300419D78 /* SWACityDB */,
+				E56AD8DD1C46A55900419D78 /* SWAForecastDB */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +260,28 @@
 				E56AD8D41C469E0F00419D78 /* SWAForecastsRequest.m */,
 			);
 			path = SWAForecastsRequest;
+			sourceTree = "<group>";
+		};
+		E56AD8D61C46A4D300419D78 /* SWACityDB */ = {
+			isa = PBXGroup;
+			children = (
+				E56AD8D71C46A50300419D78 /* SWACityDB+CoreDataProperties.h */,
+				E56AD8D81C46A50300419D78 /* SWACityDB+CoreDataProperties.m */,
+				E56AD8D91C46A50300419D78 /* SWACityDB.h */,
+				E56AD8DA1C46A50300419D78 /* SWACityDB.m */,
+			);
+			name = SWACityDB;
+			sourceTree = "<group>";
+		};
+		E56AD8DD1C46A55900419D78 /* SWAForecastDB */ = {
+			isa = PBXGroup;
+			children = (
+				E56AD8DE1C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.h */,
+				E56AD8DF1C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.m */,
+				E56AD8E01C46A56A00419D78 /* SWAForecastDB.h */,
+				E56AD8E11C46A56A00419D78 /* SWAForecastDB.m */,
+			);
+			name = SWAForecastDB;
 			sourceTree = "<group>";
 		};
 		E59FAEF41C41395200754CA3 = {
@@ -455,6 +491,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E56AD8E31C46A56A00419D78 /* SWAForecastDB.m in Sources */,
+				E56AD8E21C46A56A00419D78 /* SWAForecastDB+CoreDataProperties.m in Sources */,
+				E56AD8DC1C46A50300419D78 /* SWACityDB.m in Sources */,
 				E54CC0EB1C43DBB2003D1229 /* SWACitiesListTableViewCell.m in Sources */,
 				E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */,
 				E54CC0EE1C43DE5B003D1229 /* SWAMainTableViewCell.m in Sources */,
@@ -468,6 +507,7 @@
 				E54CC0F71C43F396003D1229 /* SWARootRequest.m in Sources */,
 				E54CC0DC1C43D0E8003D1229 /* SWAMainViewController.m in Sources */,
 				E56AD8D51C469E0F00419D78 /* SWAForecastsRequest.m in Sources */,
+				E56AD8DB1C46A50300419D78 /* SWACityDB+CoreDataProperties.m in Sources */,
 				E54CC0CD1C43C952003D1229 /* SWARequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

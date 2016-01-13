@@ -13,6 +13,7 @@ typedef void (^GETForecastsSuccessBlock)(NSDictionary *dataDictionary);
 
 @property (nonatomic, copy) GETForecastsSuccessBlock successBlock;
 
-- (instancetype)initRequestWithCity:(NSString *)cityString numberOfDays:(NSNumber *)numberOfDays;
+- (instancetype)initRequestWithCity:(NSString *)cityString
+                       numberOfDays:(NSNumber *)numberOfDays;
 
 @end

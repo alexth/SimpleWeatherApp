@@ -17,14 +17,14 @@ const float kAnimationSpeedLow = 0.4f;
 
 #pragma mark - Entity Names
 
-//NSString * const kCityEntityName = @"SWACityDB";
+NSString * const kCityEntityName = @"SWACityDB";
+NSString * const kForecastEntityName = @"SWAForecastDB";
 
 #pragma mark - Web
 
+const int kFutureForecastsCount = 5;
 NSString * const kServerURLAddress = @"http://api.worldweatheronline.com/free/v2/weather.ashx?";
 NSString * const kAuthKey = @"3e11ab17a696bfb1ea4714e8d4263";
-NSString * const kContentType = @"application/json";
-NSString * const kAccept = @"application/json";
 
 
 

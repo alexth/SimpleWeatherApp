@@ -32,11 +32,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWARequestManager)
 
 #pragma mark - GET methods
 
-- (void)GETForecastForCity:(NSString *)city numberOfDays:(NSNumber *)numberOfDays successBlock:(RequestManagerSuccessBlock)successBlock
+- (void)GETForecastForCity:(NSString *)city
+              numberOfDays:(NSNumber *)numberOfDays
+              successBlock:(RequestManagerSuccessBlock)successBlock
 {
     __weak typeof(self) weakSelf = self;
     
-    SWAForecastsRequest *allRequest = [[SWAForecastsRequest alloc]initRequestWithCity:city numberOfDays:numberOfDays];
+    SWAForecastsRequest *allRequest = [[SWAForecastsRequest alloc]initRequestWithCity:city
+                                                                         numberOfDays:numberOfDays];
     [self.GETForecastsArray addObject:allRequest];
     __weak SWAForecastsRequest *weakRequest = allRequest;
     allRequest.failureBlock = ^(NSError *error) {

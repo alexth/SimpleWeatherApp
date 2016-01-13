@@ -9,7 +9,8 @@
 
 @implementation SWAForecastsRequest
 
-- (instancetype)initRequestWithCity:(NSString *)cityString numberOfDays:(NSNumber *)numberOfDays
+- (instancetype)initRequestWithCity:(NSString *)cityString
+                       numberOfDays:(NSNumber *)numberOfDays
 {
     if (self = [super init])
     {

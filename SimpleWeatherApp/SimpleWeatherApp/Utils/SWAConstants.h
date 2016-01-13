@@ -15,10 +15,10 @@ extern const float kAnimationSpeedDefault;
 extern const float kAnimationSpeedLow;
 
 // Entity Names
-//extern NSString * const kCityEntityName;
+extern NSString * const kCityEntityName;
+extern NSString * const kForecastEntityName;
 
 // Web
+const int kFutureForecastsCount;
 extern NSString * const kServerURLAddress;
 extern NSString * const kAuthKey;
-extern NSString * const kContentType;
-extern NSString * const kAccept;

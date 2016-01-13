@@ -8,6 +8,8 @@
 
 #import "SWAAppDelegate.h"
 
+#import <AFNetworkingLogger.h>
+
 @interface SWAAppDelegate ()
 
 @end
@@ -17,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [AFNetworkingLogger.sharedLogger startLogging];
+    AFNetworkingLogger.sharedLogger.level = AFNetworkingLoggerLevelVerbose;
     // Override point for customization after application launch.
     return YES;
 }

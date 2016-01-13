@@ -10,8 +10,9 @@
 
 #import "SWACitiesListTableViewCell.h"
 
-@interface SWACitiesListViewController ()
+@interface SWACitiesListViewController () <UISearchBarDelegate>
 
+@property (nonatomic, weak) IBOutlet UISearchBar *citiesSearchBar;
 @property (nonatomic, weak) IBOutlet UITableView *citiesListTableView;
 
 @end
@@ -60,6 +61,32 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 heightForHeaderInSection:(NSInteger)section
 {
     return CGFLOAT_MIN;
+}
+
+#pragma mark - Search Bar Delegate
+
+- (void)searchBar:(UISearchBar *)searchBar
+    textDidChange:(NSString *)searchText
+{
+    if ([searchText length] == 0)
+    {
+        
+    }
+    else
+    {
+        
+    }
+    [self.citiesListTableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
 }
 
 #pragma mark - Utils

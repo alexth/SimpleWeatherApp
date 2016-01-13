@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="7sl-X1-rUf">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="citiesListTableViewCell" rowHeight="50" id="jVw-eB-qoa" customClass="SWACitiesListTableViewCell">
@@ -55,17 +55,31 @@
                                     <outlet property="delegate" destination="xbM-ny-NNP" id="Gdm-9H-2Fk"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PEl-v5-mIg">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3NM-Tr-XME"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xbM-ny-NNP" id="t26-1p-yFQ"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PEl-v5-mIg" firstAttribute="leading" secondItem="TgW-dI-Mjl" secondAttribute="leadingMargin" constant="-20" id="Eoj-cZ-BJt"/>
+                            <constraint firstItem="7sl-X1-rUf" firstAttribute="top" secondItem="PEl-v5-mIg" secondAttribute="bottom" id="FEe-Ny-EMr"/>
                             <constraint firstItem="Yyc-E1-Cve" firstAttribute="top" secondItem="7sl-X1-rUf" secondAttribute="bottom" id="Jfd-ee-t3N"/>
+                            <constraint firstItem="PEl-v5-mIg" firstAttribute="top" secondItem="VRS-6o-5hU" secondAttribute="bottom" id="Kds-rb-gGT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7sl-X1-rUf" secondAttribute="trailing" constant="-20" id="KjM-KM-kzf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PEl-v5-mIg" secondAttribute="trailing" constant="-20" id="TWN-r0-NR2"/>
                             <constraint firstItem="7sl-X1-rUf" firstAttribute="leading" secondItem="TgW-dI-Mjl" secondAttribute="leadingMargin" constant="-20" id="pVj-de-Yi4"/>
-                            <constraint firstItem="7sl-X1-rUf" firstAttribute="top" secondItem="VRS-6o-5hU" secondAttribute="bottom" id="yJb-52-Tef"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="citiesListTableView" destination="7sl-X1-rUf" id="KTc-F5-kW6"/>
+                        <outlet property="citiesSearchBar" destination="PEl-v5-mIg" id="fhV-WS-cFU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fj6-N1-on0" userLabel="First Responder" sceneMemberID="firstResponder"/>

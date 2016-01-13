@@ -39,8 +39,6 @@ static const NSUInteger kBadRequestError = 400;
                                       failure:(FailureBlock)failure
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setValue:kSigningProfileTypeProduction forHTTPHeaderField:kSigningProfileType];
-//    [request setHTTPBody:jsonData];
     [request setHTTPMethod:kGETRequestMethod];
     return [self requestOperationForRequest:request successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -73,8 +71,6 @@ static const NSUInteger kBadRequestError = 400;
     }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setValue:kSigningProfileTypeProduction forHTTPHeaderField:kSigningProfileType];
-
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:kPOSTRequestMethod];
     
@@ -108,7 +104,6 @@ static const NSUInteger kBadRequestError = 400;
     }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setValue:kSigningProfileTypeProduction forHTTPHeaderField:kSigningProfileType];
 
     [request setHTTPMethod:kDELETERequestMethod];
     
@@ -143,7 +138,6 @@ static const NSUInteger kBadRequestError = 400;
     }
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-//    [request setValue:kSigningProfileTypeProduction forHTTPHeaderField:kSigningProfileType];
     
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:kPATCHRequestMethod];
@@ -200,12 +194,6 @@ static const NSUInteger kBadRequestError = 400;
 {
     AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kServerURLAddress]];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-//    [manager.requestSerializer setValue:kAccept forHTTPHeaderField:@"Accept"];
-//    [manager.requestSerializer setValue:kAuthKey forHTTPHeaderField:@"Authorization"];
-    
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/problem+json"];
-//    manager.responseSerializer.acceptableContentTypes = [manager.responseSerializer.acceptableContentTypes setByAddingObject:@"application/hal+json"];
-    
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
     
     AFHTTPRequestOperation *uploadOperation = [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {

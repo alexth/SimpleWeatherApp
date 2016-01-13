@@ -22,8 +22,7 @@
 {
     __weak SWARootRequest *weakSelf = self;
     
-    // TODO: logger
-    //    NSLog(@"url - %@", [self.url absoluteString]);
+//    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore getRequestWithUrl:self.url success:^(id JSON) {
         
@@ -43,8 +42,7 @@
 {
     __weak SWARootRequest *weakSelf = self;
     
-    // TODO: logger
-    //    NSLog(@"url - %@", [self.url absoluteString]);
+//    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore postRequestWithURL:self.url parameters:self.parameters success:^(id JSON) {
         
@@ -64,8 +62,7 @@
 {
     __weak SWARootRequest *weakSelf = self;
     
-    // TODO: logger
-    //    NSLog(@"url - %@", [self.url absoluteString]);
+//    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore deleteRequestWithURL:self.url parameters:self.parameters success:^(id JSON) {
         
@@ -85,8 +82,7 @@
 {
     __weak SWARootRequest *weakSelf = self;
     
-    // TODO: logger
-    //    NSLog(@"url - %@", [self.url absoluteString]);
+//    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore patchRequestWithURL:self.url parameters:self.parameters success:^(id JSON) {
         

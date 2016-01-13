@@ -13,7 +13,6 @@
 {
     if (self = [super init])
     {
-        //http://api.worldweatheronline.com/free/v2/weather.ashx?q=Kramatorsk&format=json&num_of_days=5&key=3e11ab17a696bfb1ea4714e8d4263
         NSString *urlString = [NSString stringWithFormat:@"%@%@%@%@%@",
                                kServerURLAddress,
                                [NSString stringWithFormat:@"q=%@", cityString],

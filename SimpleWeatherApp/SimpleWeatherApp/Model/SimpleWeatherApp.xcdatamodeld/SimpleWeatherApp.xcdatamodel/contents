@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
-    <entity name="SWACityDB" syncable="YES"/>
-    <entity name="SWAForecastDB" syncable="YES"/>
+    <entity name="SWACityDB" syncable="YES">
+        <attribute name="displayed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="forecasts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SWAForecastDB" inverseName="city" inverseEntity="SWAForecastDB" syncable="YES"/>
+    </entity>
+    <entity name="SWAForecastDB" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SWACityDB" inverseName="forecasts" inverseEntity="SWACityDB" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="SWACityDB" positionX="-63" positionY="-18" width="128" height="45"/>
-        <element name="SWAForecastDB" positionX="-54" positionY="-9" width="128" height="30"/>
+        <element name="SWACityDB" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="SWAForecastDB" positionX="225" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

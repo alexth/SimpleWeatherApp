@@ -18,8 +18,8 @@
                                kServerURLAddress,
                                [NSString stringWithFormat:@"q=%@", cityString],
                                [NSString stringWithFormat:@"&format=json"],
-                               [NSString stringWithFormat:@"num_of_days=%@", numberOfDays],
-                               [NSString stringWithFormat:@"key=%@", kAuthKey]
+                               [NSString stringWithFormat:@"&num_of_days=%@", numberOfDays],
+                               [NSString stringWithFormat:@"&key=%@", kAuthKey]
                                ];
         _url = [[NSURL alloc] initWithString:urlString];
     }

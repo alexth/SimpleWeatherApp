@@ -34,6 +34,12 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 {
     [super viewDidLoad];
     [self refreshData];
+    
+    [self.requestManager GETForecastForCity:@"london" numberOfDays:@(5)
+                               successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
+                                  
+                                   
+                               }];
 }
 
 #pragma mark - TableView DataSource

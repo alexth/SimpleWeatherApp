@@ -32,7 +32,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWARequestManager)
 
 #pragma mark - GET methods
 
-- (void)getForecastForCity:(NSString *)city numberOfDays:(NSNumber *)numberOfDays successBlock:(RequestManagerSuccessBlock)successBlock
+- (void)GETForecastForCity:(NSString *)city numberOfDays:(NSNumber *)numberOfDays successBlock:(RequestManagerSuccessBlock)successBlock
 {
     __weak typeof(self) weakSelf = self;
     

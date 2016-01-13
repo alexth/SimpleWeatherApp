@@ -107,35 +107,30 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     }
 }
 
-#pragma mark - Utils
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
-
 #pragma mark - CreateUpdates
 
 - (void)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary
 {
-    NSArray *citiesArray = [self fetchCityWithName:dataDictionary[@""]];
+    NSDictionary *responseDictionary = dataDictionary[@"data"];
+    NSString *cityName = [self cityNameFromResponseDictionary:responseDictionary];
+    NSArray *citiesArray = [self fetchCityWithName:dataDictionary[cityName]];
     if (citiesArray.count == 0)
     {
         SWACityDB *newCity = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
                                                            inManagedObjectContext:self.managedObjectContext];
-//        newCity.name =
-//        newCity.isDisplayed =
-//        newCity.isSelected =
-//        newCity.forecasts =
+        newCity.name = cityName;
+        newCity.isDisplayed = @(YES);
+        newCity.isSelected = @(YES);
     }
     else if (citiesArray.count == 1)
     {
         SWACityDB *existingCity = citiesArray[0];
-        
+        existingCity.isDisplayed = @(YES);
+        existingCity.isSelected = @(YES);
     }
     else
     {
-        
+#warning - track doublings of cities entities
     }
     
     [self saveContext];
@@ -194,6 +189,30 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kForecastDateProperty ascending:YES]]];
     
     return fetchRequest;
+}
+
+
+#pragma mark - Utils
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+- (NSString *)cityNameFromResponseDictionary:(NSDictionary *)responseDictionary
+{
+    NSArray *cityDataArray = responseDictionary[@"request"];
+    if (cityDataArray.count > 0)
+    {
+        NSDictionary *cityDataDictionary = cityDataArray[0];
+        return cityDataDictionary[@"query"];
+    }
+    else
+    {
+        return @"Unknown City";
+    }
+    
+    return nil;
 }
 
 @end

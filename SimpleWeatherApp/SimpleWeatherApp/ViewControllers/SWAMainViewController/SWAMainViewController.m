@@ -34,6 +34,21 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 {
     [super viewDidLoad];
     [self refreshData];
+    
+    __weak typeof(self) weakSelf = self;
+    [self.requestManager GETForecastForCity:@"London"
+                               numberOfDays:@(kFutureForecastsCount)
+                               successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
+                                   
+                                   if (!error)
+                                   {
+                                       [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
+                                   }
+                                   else
+                                   {
+#warning - handle error
+                                   }
+                               }];
 }
 
 #pragma mark - TableView DataSource

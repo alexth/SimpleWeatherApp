@@ -21,7 +21,7 @@
 {
     [AFNetworkingLogger.sharedLogger startLogging];
     AFNetworkingLogger.sharedLogger.level = AFNetworkingLoggerLevelVerbose;
-    // Override point for customization after application launch.
+
     return YES;
 }
 

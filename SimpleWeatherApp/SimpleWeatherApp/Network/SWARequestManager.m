@@ -11,7 +11,7 @@
 
 @interface SWARequestManager ()
 
-@property (nonatomic, strong) NSMutableArray *GETImageRequestsArray;
+@property (nonatomic, strong) NSMutableArray *GETForecastsArray;
 
 @end
 
@@ -22,10 +22,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWARequestManager)
 {
     if ([super init] == self)
     {
-        _GETImageRequestsArray = [NSMutableArray new];
+        _GETForecastsArray = [NSMutableArray new];
     }
     
     return self;
 }
+
+#pragma mark - GET methods
+
 
 @end

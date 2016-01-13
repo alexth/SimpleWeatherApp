@@ -1,8 +1,9 @@
 //
 //  SWARootRequest.m
+//  SimpleWeatherApp
 //
-//  Created by alex on 26.10.15.
-//  Copyright © 2015 Codeveyor. All rights reserved.
+//  Created by Alex Golub on 1/11/16.
+//  Copyright © 2016 Alex Golub. All rights reserved.
 //
 
 #import "SWARootRequest.h"
@@ -20,9 +21,9 @@
 - (AFHTTPRequestOperation *)GETRequestOperation
 {
     __weak SWARootRequest *weakSelf = self;
-
-// TODO: logger
-//    NSLog(@"url - %@", [self.url absoluteString]);
+    
+    // TODO: logger
+    //    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore getRequestWithUrl:self.url success:^(id JSON) {
         
@@ -42,8 +43,8 @@
 {
     __weak SWARootRequest *weakSelf = self;
     
-// TODO: logger
-//    NSLog(@"url - %@", [self.url absoluteString]);
+    // TODO: logger
+    //    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore postRequestWithURL:self.url parameters:self.parameters success:^(id JSON) {
         
@@ -62,9 +63,9 @@
 - (AFHTTPRequestOperation *)DELETERequestOperation
 {
     __weak SWARootRequest *weakSelf = self;
-
-// TODO: logger
-//    NSLog(@"url - %@", [self.url absoluteString]);
+    
+    // TODO: logger
+    //    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore deleteRequestWithURL:self.url parameters:self.parameters success:^(id JSON) {
         
@@ -83,9 +84,9 @@
 - (AFHTTPRequestOperation *)PATCHRequestOperation
 {
     __weak SWARootRequest *weakSelf = self;
-
-// TODO: logger
-//    NSLog(@"url - %@", [self.url absoluteString]);
+    
+    // TODO: logger
+    //    NSLog(@"url - %@", [self.url absoluteString]);
     
     self.operation = [SWAWebCore patchRequestWithURL:self.url parameters:self.parameters success:^(id JSON) {
         

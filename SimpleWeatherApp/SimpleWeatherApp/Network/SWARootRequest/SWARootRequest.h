@@ -1,8 +1,9 @@
 //
 //  SWARootRequest.h
+//  SimpleWeatherApp
 //
-//  Created by alex on 26.10.15.
-//  Copyright © 2015 Codeveyor. All rights reserved.
+//  Created by Alex Golub on 1/11/16.
+//  Copyright © 2016 Alex Golub. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -38,3 +39,4 @@ typedef void (^RequestFailureBlock)(NSError *error);
 - (void)downloadedImage:(UIImage *)image;
 
 @end
+

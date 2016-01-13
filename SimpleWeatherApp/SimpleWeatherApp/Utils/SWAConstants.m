@@ -21,7 +21,7 @@ const float kAnimationSpeedLow = 0.4f;
 
 #pragma mark - Web
 
-NSString * const kServerURLAddress = @"http://api.worldweatheronline.com/free/v1/";
+NSString * const kServerURLAddress = @"http://api.worldweatheronline.com/free/v2/weather.ashx?";
 NSString * const kAuthKey = @"3e11ab17a696bfb1ea4714e8d4263";
 NSString * const kContentType = @"application/json";
 NSString * const kAccept = @"application/json";

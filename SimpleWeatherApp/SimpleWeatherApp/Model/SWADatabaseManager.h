@@ -21,4 +21,7 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+// CreateUpdates
+- (void)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary;
+
 @end

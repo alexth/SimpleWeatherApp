@@ -114,6 +114,43 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - CreateUpdates
+
+- (void)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary
+{
+    NSArray *citiesArray = [self fetchCityWithName:dataDictionary[@""]];
+    if (citiesArray.count == 0)
+    {
+        SWACityDB *newCity = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
+                                                           inManagedObjectContext:self.managedObjectContext];
+//        newCity.name =
+//        newCity.isDisplayed =
+//        newCity.isSelected =
+//        newCity.forecasts =
+    }
+    else if (citiesArray.count == 1)
+    {
+        SWACityDB *existingCity = citiesArray[0];
+        
+    }
+    else
+    {
+        
+    }
+    
+    [self saveContext];
+}
+
+#pragma mark - Fetches
+
+- (NSArray *)fetchCityWithName:(NSString *)nameString
+{
+    NSFetchRequest *cityWithNameFetchRequest = [self cityWithNameFetchRequest:nameString];
+    NSError *error = nil;
+    
+    return [self.managedObjectContext executeFetchRequest:cityWithNameFetchRequest error:&error];
+}
+
 #pragma mark - Fetch Requests
 
 - (NSFetchRequest *)allCitiesFetchRequest
@@ -121,9 +158,19 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return [self citiesFetchRequestWithPredicate:nil];
 }
 
+- (NSFetchRequest *)selectedCityFetchRequest
+{
+    return [self citiesFetchRequestWithPredicate:[NSPredicate predicateWithFormat:@"isSelected == %@", @(YES)]];
+}
+
+- (NSFetchRequest *)cityWithNameFetchRequest:(NSString *)nameString
+{
+    return [self citiesFetchRequestWithPredicate:[NSPredicate predicateWithFormat:@"name == %@", nameString]];
+}
+
 - (NSFetchRequest *)displayedCitiesFetchRequest
 {
-    return [self citiesFetchRequestWithPredicate:[NSPredicate predicateWithFormat:@"displayed == %@", @(YES)]];
+    return [self citiesFetchRequestWithPredicate:[NSPredicate predicateWithFormat:@"isDisplayed == %@", @(YES)]];
 }
 
 - (NSFetchRequest *)citiesFetchRequestWithPredicate:(NSPredicate *)predicate

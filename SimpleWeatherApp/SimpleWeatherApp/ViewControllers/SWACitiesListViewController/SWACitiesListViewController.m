@@ -10,7 +10,9 @@
 
 #import "SWACitiesListTableViewCell.h"
 
-@interface SWACitiesListViewController () <UISearchBarDelegate>
+#import "SWACityDB.h"
+
+@interface SWACitiesListViewController () <UISearchBarDelegate, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *citiesSearchBar;
 @property (nonatomic, weak) IBOutlet UITableView *citiesListTableView;
@@ -81,7 +83,23 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-
+    if (searchBar.text.length > 0)
+    {
+        __weak typeof(self) weakSelf = self;
+        [self.requestManager GETForecastForCity:searchBar.text
+                                   numberOfDays:@(kFutureForecastsCount)
+                                   successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
+                                      
+                                       if (!error)
+                                       {
+                                           [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
+                                       }
+                                       else
+                                       {
+#warning - handle error
+                                       }
+                                   }];
+    }
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar

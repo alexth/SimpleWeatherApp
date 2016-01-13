@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
     <entity name="SWACityDB" representedClassName="SWACityDB" syncable="YES">
-        <attribute name="displayed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDisplayed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSelected" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="forecasts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SWAForecastDB" inverseName="city" inverseEntity="SWAForecastDB" syncable="YES"/>
     </entity>
@@ -12,7 +13,7 @@
         <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SWACityDB" inverseName="forecasts" inverseEntity="SWACityDB" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SWACityDB" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="SWACityDB" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="SWAForecastDB" positionX="225" positionY="-33" width="128" height="105"/>
     </elements>
 </model>

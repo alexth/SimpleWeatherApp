@@ -14,7 +14,8 @@
 @implementation SWACityDB (CoreDataProperties)
 
 @dynamic name;
-@dynamic displayed;
+@dynamic isDisplayed;
+@dynamic isSelected;
 @dynamic forecasts;
 
 @end

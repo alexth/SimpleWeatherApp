@@ -9,6 +9,8 @@
 #import "SynthesizeSingleton.h"
 #import "AFHTTPRequestOperation.h"
 
+#import "SWAForecastsRequest.h"
+
 @interface SWARequestManager ()
 
 @property (nonatomic, strong) NSMutableArray *GETForecastsArray;
@@ -30,5 +32,25 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWARequestManager)
 
 #pragma mark - GET methods
 
+- (void)getForecastForCity:(NSString *)city numberOfDays:(NSNumber *)numberOfDays successBlock:(RequestManagerSuccessBlock)successBlock
+{
+    __weak typeof(self) weakSelf = self;
+    
+    SWAForecastsRequest *allRequest = [[SWAForecastsRequest alloc]initRequestWithCity:city numberOfDays:numberOfDays];
+    [self.GETForecastsArray addObject:allRequest];
+    __weak SWAForecastsRequest *weakRequest = allRequest;
+    allRequest.failureBlock = ^(NSError *error) {
+        
+        successBlock(NO, nil, error);
+        [weakSelf.GETForecastsArray removeObject:weakRequest];
+    };
+    allRequest.successBlock = ^(NSDictionary *allDictionary) {
+        
+        successBlock(YES, allDictionary, nil);
+        [weakSelf.GETForecastsArray removeObject:weakRequest];
+    };
+    
+    [allRequest.GETRequestOperation start];
+}
 
 @end

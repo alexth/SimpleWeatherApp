@@ -16,6 +16,7 @@ typedef void (^RequestManagerGetImageSuccessBlock)(BOOL success, UIImage *image,
 + (SWARequestManager *)sharedInstance;
 
 // GET Requests
+- (void)getForecastForCity:(NSString *)city numberOfDays:(NSNumber *)numberOfDays successBlock:(RequestManagerSuccessBlock)successBlock;
 
 // POST Requests
 

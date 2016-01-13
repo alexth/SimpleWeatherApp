@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5C3E5EA114FCD9591975D5EA /* libPods-SimpleWeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B805A88498C608BC39A0DF3 /* libPods-SimpleWeatherApp.a */; };
 		E54CC0CD1C43C952003D1229 /* SWARequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0CC1C43C952003D1229 /* SWARequestManager.m */; };
-		E54CC0D01C43C989003D1229 /* SWADefaultRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */; };
 		E54CC0D81C43CA4A003D1229 /* SWAWebCore.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */; };
 		E54CC0DC1C43D0E8003D1229 /* SWAMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0DB1C43D0E8003D1229 /* SWAMainViewController.m */; };
 		E54CC0DF1C43D432003D1229 /* SWARootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0DE1C43D432003D1229 /* SWARootViewController.m */; };
@@ -20,6 +19,7 @@
 		E54CC0F71C43F396003D1229 /* SWARootRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E54CC0F61C43F396003D1229 /* SWARootRequest.m */; };
 		E559DEAE1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E559DEAC1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodeld */; };
 		E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */; };
+		E56AD8D51C469E0F00419D78 /* SWAForecastsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E56AD8D41C469E0F00419D78 /* SWAForecastsRequest.m */; };
 		E59FAF021C41395200754CA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF011C41395200754CA3 /* main.m */; };
 		E59FAF051C41395200754CA3 /* SWAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E59FAF041C41395200754CA3 /* SWAAppDelegate.m */; };
 		E59FAF0B1C41395200754CA3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E59FAF091C41395200754CA3 /* Main.storyboard */; };
@@ -44,8 +44,6 @@
 		B08D5610D7B9F28861FD2BEC /* Pods-SimpleWeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleWeatherApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleWeatherApp/Pods-SimpleWeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		E54CC0CB1C43C952003D1229 /* SWARequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWARequestManager.h; sourceTree = "<group>"; };
 		E54CC0CC1C43C952003D1229 /* SWARequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWARequestManager.m; sourceTree = "<group>"; };
-		E54CC0CE1C43C989003D1229 /* SWADefaultRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWADefaultRequest.h; sourceTree = "<group>"; };
-		E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWADefaultRequest.m; sourceTree = "<group>"; };
 		E54CC0D61C43CA4A003D1229 /* SWAWebCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAWebCore.h; sourceTree = "<group>"; };
 		E54CC0D71C43CA4A003D1229 /* SWAWebCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAWebCore.m; sourceTree = "<group>"; };
 		E54CC0DA1C43D0E8003D1229 /* SWAMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAMainViewController.h; sourceTree = "<group>"; };
@@ -67,6 +65,8 @@
 		E559DEAD1C42C6BB00A6AD49 /* SimpleWeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleWeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		E559DEAF1C42C72A00A6AD49 /* SWADatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWADatabaseManager.h; sourceTree = "<group>"; };
 		E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWADatabaseManager.m; sourceTree = "<group>"; };
+		E56AD8D31C469E0F00419D78 /* SWAForecastsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAForecastsRequest.h; sourceTree = "<group>"; };
+		E56AD8D41C469E0F00419D78 /* SWAForecastsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAForecastsRequest.m; sourceTree = "<group>"; };
 		E59FAEFD1C41395200754CA3 /* SimpleWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E59FAF011C41395200754CA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E59FAF031C41395200754CA3 /* SWAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAAppDelegate.h; sourceTree = "<group>"; };
@@ -114,15 +114,6 @@
 				B08D5610D7B9F28861FD2BEC /* Pods-SimpleWeatherApp.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		E54CC0CA1C43C929003D1229 /* SWADefaultRequest */ = {
-			isa = PBXGroup;
-			children = (
-				E54CC0CE1C43C989003D1229 /* SWADefaultRequest.h */,
-				E54CC0CF1C43C989003D1229 /* SWADefaultRequest.m */,
-			);
-			path = SWADefaultRequest;
 			sourceTree = "<group>";
 		};
 		E54CC0D11C43C9A4003D1229 /* SWARootRequest */ = {
@@ -211,7 +202,7 @@
 			children = (
 				E54CC0CB1C43C952003D1229 /* SWARequestManager.h */,
 				E54CC0CC1C43C952003D1229 /* SWARequestManager.m */,
-				E54CC0CA1C43C929003D1229 /* SWADefaultRequest */,
+				E56AD8D21C469DEC00419D78 /* SWAForecastsRequest */,
 				E54CC0D11C43C9A4003D1229 /* SWARootRequest */,
 				E54CC0D51C43CA1F003D1229 /* SWAWebCore */,
 			);
@@ -246,6 +237,15 @@
 				E559DEB01C42C72A00A6AD49 /* SWADatabaseManager.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E56AD8D21C469DEC00419D78 /* SWAForecastsRequest */ = {
+			isa = PBXGroup;
+			children = (
+				E56AD8D31C469E0F00419D78 /* SWAForecastsRequest.h */,
+				E56AD8D41C469E0F00419D78 /* SWAForecastsRequest.m */,
+			);
+			path = SWAForecastsRequest;
 			sourceTree = "<group>";
 		};
 		E59FAEF41C41395200754CA3 = {
@@ -464,10 +464,10 @@
 				E559DEB11C42C72A00A6AD49 /* SWADatabaseManager.m in Sources */,
 				E59FAF021C41395200754CA3 /* main.m in Sources */,
 				E54CC0F11C43E10E003D1229 /* SWAConstants.m in Sources */,
-				E54CC0D01C43C989003D1229 /* SWADefaultRequest.m in Sources */,
 				E54CC0D81C43CA4A003D1229 /* SWAWebCore.m in Sources */,
 				E54CC0F71C43F396003D1229 /* SWARootRequest.m in Sources */,
 				E54CC0DC1C43D0E8003D1229 /* SWAMainViewController.m in Sources */,
+				E56AD8D51C469E0F00419D78 /* SWAForecastsRequest.m in Sources */,
 				E54CC0CD1C43C952003D1229 /* SWARequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

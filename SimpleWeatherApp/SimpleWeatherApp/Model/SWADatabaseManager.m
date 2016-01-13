@@ -9,9 +9,15 @@
 #import "SWADatabaseManager.h"
 #import "SynthesizeSingleton.h"
 
+#import "SWACityDB.h"
+#import "SWAForecastDB.h"
+
 @interface SWADatabaseManager ()
 
 @end
+
+static NSString * const kCityNameProperty = @"name";
+static NSString * const kForecastDateProperty = @"date";
 
 @implementation SWADatabaseManager
 SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
@@ -22,12 +28,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 #pragma mark - Core Data stack
-
-- (NSURL *)applicationDocumentsDirectory
-{
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.codeveyor.SimpleWeatherApp" in the application's documents directory.
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-}
 
 - (NSManagedObjectModel *)managedObjectModel
 {
@@ -91,7 +91,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return _managedObjectContext;
 }
 
-#pragma mark - Core Data Saving support
+#pragma mark - Core Data Saving Support
 
 - (void)saveContext
 {
@@ -105,6 +105,48 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
             abort();
         }
     }
+}
+
+#pragma mark - Utils
+
+- (NSURL *)applicationDocumentsDirectory
+{
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+#pragma mark - Fetch Requests
+
+- (NSFetchRequest *)allCitiesFetchRequest
+{
+    return [self citiesFetchRequestWithPredicate:nil];
+}
+
+- (NSFetchRequest *)displayedCitiesFetchRequest
+{
+    return [self citiesFetchRequestWithPredicate:[NSPredicate predicateWithFormat:@"displayed == %@", @(YES)]];
+}
+
+- (NSFetchRequest *)citiesFetchRequestWithPredicate:(NSPredicate *)predicate
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:kCityEntityName
+                                        inManagedObjectContext:self.managedObjectContext]];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kCityNameProperty ascending:YES]]];
+    
+    return fetchRequest;
+}
+
+- (NSFetchRequest *)forecastsFetchRequestForCity:(SWACityDB *)city
+{
+    NSFetchRequest *fetchRequest = [NSFetchRequest new];
+    [fetchRequest setEntity:[NSEntityDescription entityForName:kForecastEntityName
+                                        inManagedObjectContext:self.managedObjectContext]];
+    [fetchRequest setFetchLimit:kFutureForecastsCount];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"city == %@", city]];
+    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kForecastDateProperty ascending:YES]]];
+    
+    return fetchRequest;
 }
 
 @end

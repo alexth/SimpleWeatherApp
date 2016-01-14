@@ -16,7 +16,7 @@
 @interface SWAMainViewController () <UITableViewDataSource, UITableViewDelegate, SWACitiesListViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *citiesButton;
-@property (nonatomic, weak) IBOutlet UILabel *infoLabel;
+@property (nonatomic, weak) IBOutlet UILabel *cityNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *temperatureLabel;
 @property (nonatomic, weak) IBOutlet UITableView *mainTableView;

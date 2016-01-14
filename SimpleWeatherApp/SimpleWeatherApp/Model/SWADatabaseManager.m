@@ -121,7 +121,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
         newCity.name = cityName;
         newCity.isSelected = @(YES);
         
-        
+        [newCity removeForecasts:newCity.forecasts];
+        for (NSDictionary *forecastDictionary in responseDictionary[@"weather"])
+        {
+            SWAForecastDB *forecast = [NSEntityDescription insertNewObjectForEntityForName:kForecastEntityName
+                                                                    inManagedObjectContext:self.managedObjectContext];
+            forecast.date = [self convertServerDate:forecastDictionary[@"date"]];
+            forecast.temperature = forecastDictionary[@"DewPointC"];
+            forecast.updateDate = [NSDate date];
+            
+            [newCity addForecastObject:forecast];
+        }
     }
     else if (citiesArray.count == 1)
     {
@@ -214,11 +224,12 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return nil;
 }
 
-- (void)removeAllForecastsAtCity:(SWACityDB *)city
+- (NSDate *)convertServerDate:(NSString *)dateString
 {
-    [city removeForecasts:city.forecasts];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
-    [self saveContext];
+    return [dateFormatter dateFromString:dateString];
 }
 
 @end

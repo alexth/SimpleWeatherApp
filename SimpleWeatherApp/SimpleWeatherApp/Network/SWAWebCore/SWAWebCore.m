@@ -239,7 +239,7 @@ static const NSUInteger kBadRequestError = 400;
 
         if (errorCode == kBadRequestError)
         {
-#warning - handle error
+//TODO: handle error
         }
         NSError *httpError = [NSError errorWithDomain:kBadRequestErrorDomain code:errorCode userInfo:nil];
         failure(operation, httpError);

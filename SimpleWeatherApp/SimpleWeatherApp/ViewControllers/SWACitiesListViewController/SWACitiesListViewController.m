@@ -92,11 +92,12 @@ heightForHeaderInSection:(NSInteger)section
                                       
                                        if (!error)
                                        {
-                                           [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
+                                           SWACityDB *city = [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
+                                           
                                        }
                                        else
                                        {
-#warning - handle error
+                                           //TODO: Handle error
                                        }
                                    }];
     }

@@ -119,13 +119,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
         SWACityDB *newCity = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
                                                            inManagedObjectContext:self.managedObjectContext];
         newCity.name = cityName;
-        newCity.isDisplayed = @(YES);
         newCity.isSelected = @(YES);
     }
     else if (citiesArray.count == 1)
     {
         SWACityDB *existingCity = citiesArray[0];
-        existingCity.isDisplayed = @(YES);
         existingCity.isSelected = @(YES);
     }
     else

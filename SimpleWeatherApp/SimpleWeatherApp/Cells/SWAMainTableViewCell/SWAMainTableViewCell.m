@@ -8,6 +8,8 @@
 
 #import "SWAMainTableViewCell.h"
 
+#import "SWAForecastDB.h"
+
 @interface SWAMainTableViewCell ()
 
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
@@ -18,5 +20,11 @@
 @implementation SWAMainTableViewCell
 
 #pragma mark - Setup
+
+- (void)cellWithForecast:(SWAForecastDB *)forecast
+{
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", forecast.date];
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@C - %@C", forecast.minTemperature, forecast.maxTemperature];
+}
 
 @end

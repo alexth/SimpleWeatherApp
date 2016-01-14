@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SWAForecastDB;
+
 @interface SWAMainTableViewCell : UITableViewCell
+
+- (void)cellWithForecast:(SWAForecastDB *)forecast;
 
 @end

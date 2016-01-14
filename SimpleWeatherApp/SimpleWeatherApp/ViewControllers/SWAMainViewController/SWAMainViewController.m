@@ -12,6 +12,7 @@
 #import "SWAMainTableViewCell.h"
 
 #import "SWACityDB.h"
+#import "SWAForecastDB.h"
 
 @interface SWAMainViewController () <UITableViewDataSource, UITableViewDelegate, SWACitiesListViewControllerDelegate>
 
@@ -22,6 +23,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *mainTableView;
 
 @property (nonatomic, strong) SWACityDB *selectedCity;
+@property (nonatomic, strong) NSArray *forecastsArray;
 
 - (IBAction)citiesButtonDidPressed:(UIButton *)button;
 
@@ -51,13 +53,15 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.selectedCity.forecasts count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     SWAMainTableViewCell *cell = (SWAMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kMainTableViewCellIdentifier forIndexPath:indexPath];
+    SWAForecastDB *forecast = self.forecastsArray[indexPath.row];
+    [cell cellWithForecast:forecast];
     
     return cell;
 }
@@ -81,6 +85,7 @@ heightForHeaderInSection:(NSInteger)section
 - (void)citySelected:(SWACityDB *)city
 {
     self.selectedCity = city;
+    self.forecastsArray = [self.selectedCity.forecasts allObjects];
     [self refreshData];
 }
 
@@ -100,7 +105,9 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)refreshData
 {
-    
+    self.cityNameLabel.text = self.selectedCity.name;
+    self.dateLabel.text = [NSString stringWithFormat:@"%@", [NSDate date]];
+//    self.temperatureLabel.text = [NSString stringWithFormat:@"%@C - %@C", ];
 }
 
 @end

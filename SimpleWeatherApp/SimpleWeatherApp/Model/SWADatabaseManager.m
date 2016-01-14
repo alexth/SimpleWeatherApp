@@ -231,6 +231,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return [dateFormatter dateFromString:dateString];
 }
 
+- (NSString *)dateStringFromDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    return [dateFormatter stringFromDate:date];
+}
+
 - (void)forecastsData:(NSDictionary *)forecastsDictionary toCity:(SWACityDB *)city
 {
     for (NSDictionary *forecastDictionary in forecastsDictionary[@"weather"])

@@ -30,6 +30,7 @@
 @end
 
 static NSString * const kMainTableViewCellIdentifier = @"mainTableViewCell";
+static NSString * const kToCitiesListSegue = @"toCitiesList";
 static const NSUInteger kMainTableViewSectionsCount = 1;
 static const CGFloat kMainTableViewCellHeight = 50.0f;
 
@@ -41,6 +42,15 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 {
     [super viewDidLoad];
     [self refreshData];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:kToCitiesListSegue])
+    {
+        SWACitiesListViewController *slvc = segue.destinationViewController;
+        slvc.delegate = self;
+    }
 }
 
 #pragma mark - TableView DataSource
@@ -106,8 +116,9 @@ heightForHeaderInSection:(NSInteger)section
 - (void)refreshData
 {
     self.cityNameLabel.text = self.selectedCity.name;
-    self.dateLabel.text = [NSString stringWithFormat:@"%@", [NSDate date]];
+    self.dateLabel.text = [self.databaseManager dateStringFromDate:[NSDate date]];
 //    self.temperatureLabel.text = [NSString stringWithFormat:@"%@C - %@C", ];
+    [self.mainTableView reloadData];
 }
 
 @end

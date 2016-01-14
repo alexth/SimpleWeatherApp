@@ -94,6 +94,7 @@ heightForHeaderInSection:(NSInteger)section
                                        {
                                            SWACityDB *city = [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
                                            [weakSelf.delegate citySelected:city];
+                                           [weakSelf.navigationController popViewControllerAnimated:YES];
                                        }
                                        else
                                        {

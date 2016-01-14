@@ -26,4 +26,7 @@
 // CreateUpdates
 - (SWACityDB *)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary;
 
+// Utils
+- (NSString *)dateStringFromDate:(NSDate *)date;
+
 @end

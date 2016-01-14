@@ -23,7 +23,7 @@
 
 - (void)cellWithForecast:(SWAForecastDB *)forecast
 {
-    self.dateLabel.text = [NSString stringWithFormat:@"%@", forecast.date];
+    self.dateLabel.text = [[SWADatabaseManager sharedInstance]dateStringFromDate:forecast.date];
     self.temperatureLabel.text = [NSString stringWithFormat:@"%@C - %@C", forecast.minTemperature, forecast.maxTemperature];
 }
 

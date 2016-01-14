@@ -95,7 +95,6 @@ heightForHeaderInSection:(NSInteger)section
 - (void)citySelected:(SWACityDB *)city
 {
     self.selectedCity = city;
-    self.forecastsArray = [self.selectedCity.forecasts allObjects];
     [self refreshData];
 }
 
@@ -115,9 +114,15 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)refreshData
 {
+    self.forecastsArray = [self.selectedCity.forecasts allObjects];
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES];
+    self.forecastsArray = [self.forecastsArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    SWAForecastDB *currentForecast = self.forecastsArray[0];
+    self.temperatureLabel.text = [NSString stringWithFormat:@"%@C / %@C", currentForecast.minTemperature, currentForecast.maxTemperature];
+    
     self.cityNameLabel.text = self.selectedCity.name;
     self.dateLabel.text = [self.databaseManager dateStringFromDate:[NSDate date]];
-//    self.temperatureLabel.text = [NSString stringWithFormat:@"%@C - %@C", ];
     [self.mainTableView reloadData];
 }
 

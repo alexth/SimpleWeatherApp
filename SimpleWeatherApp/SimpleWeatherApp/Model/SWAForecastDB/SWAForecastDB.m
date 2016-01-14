@@ -12,7 +12,8 @@
 @implementation SWAForecastDB
 
 @dynamic date;
-@dynamic temperature;
+@dynamic maxTemperature;
+@dynamic minTemperature;
 @dynamic updateDate;
 @dynamic city;
 

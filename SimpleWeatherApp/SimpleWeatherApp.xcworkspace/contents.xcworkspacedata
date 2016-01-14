@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../../SWACityDB+CoreDataProperties.h">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../SWACityDB+CoreDataProperties.m">
+   </FileRef>
+   <FileRef
       location = "group:SimpleWeatherApp.xcodeproj">
    </FileRef>
    <FileRef

@@ -21,8 +21,8 @@
 
 @interface SWACityDB (CoreDataGeneratedAccessors)
 
-- (void)addForecastObject:(SWAForecastDB *)value;
-- (void)removeForecastObject:(SWAForecastDB *)value;
+- (void)addForecastsObject:(SWAForecastDB *)value;
+- (void)removeForecastsObject:(SWAForecastDB *)value;
 - (void)addForecasts:(NSSet *)values;
 - (void)removeForecasts:(NSSet *)values;
 

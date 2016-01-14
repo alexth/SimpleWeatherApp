@@ -72,7 +72,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return _persistentStoreCoordinator;
 }
 
-
 - (NSManagedObjectContext *)managedObjectContext
 {
     if (_managedObjectContext != nil)
@@ -122,21 +121,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
         newCity.isSelected = @(YES);
         
         [newCity removeForecasts:newCity.forecasts];
-        for (NSDictionary *forecastDictionary in responseDictionary[@"weather"])
-        {
-            SWAForecastDB *forecast = [NSEntityDescription insertNewObjectForEntityForName:kForecastEntityName
-                                                                    inManagedObjectContext:self.managedObjectContext];
-            forecast.date = [self convertServerDate:forecastDictionary[@"date"]];
-            forecast.temperature = forecastDictionary[@"DewPointC"];
-            forecast.updateDate = [NSDate date];
-            
-            [newCity addForecastObject:forecast];
-        }
+        [self forecastsData:responseDictionary
+                     toCity:newCity];
     }
     else if (citiesArray.count == 1)
     {
         SWACityDB *existingCity = citiesArray[0];
         existingCity.isSelected = @(YES);
+        
+        [existingCity removeForecasts:existingCity.forecasts];
+        [self forecastsData:responseDictionary
+                     toCity:existingCity];
     }
     else
     {
@@ -230,6 +225,23 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     
     return [dateFormatter dateFromString:dateString];
+}
+
+- (void)forecastsData:(NSDictionary *)forecastsDictionary toCity:(SWACityDB *)city
+{
+    for (NSDictionary *forecastDictionary in forecastsDictionary[@"weather"])
+    {
+        SWAForecastDB *forecast = [NSEntityDescription insertNewObjectForEntityForName:kForecastEntityName
+                                                                inManagedObjectContext:self.managedObjectContext];
+        forecast.date = [self convertServerDate:forecastDictionary[@"date"]];
+        forecast.minTemperature = @([forecastDictionary[@"mintempC"] integerValue]);
+        forecast.maxTemperature = @([forecastDictionary[@"maxtempC"] integerValue]);
+        forecast.updateDate = [NSDate date];
+        
+        [city addForecastsObject:forecast];
+    }
+    
+    [self saveContext];
 }
 
 @end

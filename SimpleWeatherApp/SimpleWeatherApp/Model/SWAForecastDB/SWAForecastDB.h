@@ -14,7 +14,8 @@
 @interface SWAForecastDB : NSManagedObject
 
 @property (nonatomic, retain) NSDate *date;
-@property (nonatomic, retain) NSNumber *temperature;
+@property (nonatomic, retain) NSNumber *maxTemperature;
+@property (nonatomic, retain) NSNumber *minTemperature;
 @property (nonatomic, retain) NSDate *updateDate;
 @property (nonatomic, retain) SWACityDB *city;
 

@@ -3,16 +3,17 @@
     <entity name="SWACityDB" representedClassName="SWACityDB" syncable="YES">
         <attribute name="isSelected" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="forecasts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SWAForecastDB" inverseName="city" inverseEntity="SWAForecastDB" syncable="YES"/>
+        <relationship name="forecasts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SWAForecastDB" inverseName="city" inverseEntity="SWAForecastDB" syncable="YES"/>
     </entity>
     <entity name="SWAForecastDB" representedClassName="SWAForecastDB" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="temperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxTemperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="minTemperature" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="city" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SWACityDB" inverseName="forecasts" inverseEntity="SWACityDB" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SWACityDB" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="SWAForecastDB" positionX="225" positionY="-33" width="128" height="105"/>
+        <element name="SWACityDB" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="SWAForecastDB" positionX="225" positionY="-33" width="128" height="118"/>
     </elements>
 </model>

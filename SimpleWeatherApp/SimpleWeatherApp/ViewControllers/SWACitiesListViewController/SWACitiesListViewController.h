@@ -8,6 +8,16 @@
 
 #import "SWARootViewController.h"
 
+@class SWACityDB;
+
+@protocol SWACitiesListViewControllerDelegate;
+
 @interface SWACitiesListViewController : SWARootViewController
 
+@property (nonatomic, weak) id <SWACitiesListViewControllerDelegate> delegate;
+
+@end
+
+@protocol SWACitiesListViewControllerDelegate <NSObject>
+- (void)citySelected:(SWACityDB *)city;
 @end

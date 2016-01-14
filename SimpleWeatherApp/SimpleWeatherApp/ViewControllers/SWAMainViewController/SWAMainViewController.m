@@ -7,16 +7,21 @@
 //
 
 #import "SWAMainViewController.h"
+#import "SWACitiesListViewController.h"
 
 #import "SWAMainTableViewCell.h"
 
-@interface SWAMainViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "SWACityDB.h"
+
+@interface SWAMainViewController () <UITableViewDataSource, UITableViewDelegate, SWACitiesListViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *citiesButton;
 @property (nonatomic, weak) IBOutlet UILabel *infoLabel;
 @property (nonatomic, weak) IBOutlet UILabel *dateLabel;
 @property (nonatomic, weak) IBOutlet UILabel *temperatureLabel;
 @property (nonatomic, weak) IBOutlet UITableView *mainTableView;
+
+@property (nonatomic, strong) SWACityDB *selectedCity;
 
 - (IBAction)citiesButtonDidPressed:(UIButton *)button;
 
@@ -69,6 +74,14 @@ heightForRowAtIndexPath:(NSIndexPath *)indexPath
 heightForHeaderInSection:(NSInteger)section
 {
     return CGFLOAT_MIN;
+}
+
+#pragma mark - CitiesList ViewController Delegate
+
+- (void)citySelected:(SWACityDB *)city
+{
+    self.selectedCity = city;
+    [self refreshData];
 }
 
 #pragma mark - Actions

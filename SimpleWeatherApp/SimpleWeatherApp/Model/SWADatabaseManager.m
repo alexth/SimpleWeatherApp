@@ -108,37 +108,41 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 #pragma mark - CreateUpdates
 
-- (void)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary
+- (SWACityDB *)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary
 {
+    SWACityDB *city = nil;
+    
     NSDictionary *responseDictionary = dataDictionary[@"data"];
     NSString *cityName = [self cityNameFromResponseDictionary:responseDictionary];
     NSArray *citiesArray = [self fetchCityWithName:dataDictionary[cityName]];
     if (citiesArray.count == 0)
     {
-        SWACityDB *newCity = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
+        city = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
                                                            inManagedObjectContext:self.managedObjectContext];
-        newCity.name = cityName;
-        newCity.isSelected = @(YES);
+        city.name = cityName;
+        city.isSelected = @(YES);
         
-        [newCity removeForecasts:newCity.forecasts];
+        [city removeForecasts:city.forecasts];
         [self forecastsData:responseDictionary
-                     toCity:newCity];
+                     toCity:city];
     }
     else if (citiesArray.count == 1)
     {
-        SWACityDB *existingCity = citiesArray[0];
-        existingCity.isSelected = @(YES);
+        city = citiesArray[0];
+        city.isSelected = @(YES);
         
-        [existingCity removeForecasts:existingCity.forecasts];
+        [city removeForecasts:city.forecasts];
         [self forecastsData:responseDictionary
-                     toCity:existingCity];
+                     toCity:city];
     }
     else
     {
-#warning - track doublings of cities entities
+        //TODO: track doublings of cities entities
     }
     
     [self saveContext];
+    
+    return city;
 }
 
 #pragma mark - Fetches

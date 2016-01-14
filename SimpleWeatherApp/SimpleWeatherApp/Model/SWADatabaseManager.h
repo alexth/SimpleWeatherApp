@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SWACityDB;
+
 @interface SWADatabaseManager : NSObject
 
 + (SWADatabaseManager *)sharedInstance;
@@ -22,6 +24,6 @@
 - (NSURL *)applicationDocumentsDirectory;
 
 // CreateUpdates
-- (void)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary;
+- (SWACityDB *)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary;
 
 @end

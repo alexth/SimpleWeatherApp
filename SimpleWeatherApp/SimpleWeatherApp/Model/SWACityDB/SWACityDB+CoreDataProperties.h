@@ -11,13 +11,24 @@
 
 #import "SWACityDB.h"
 
+@class SWAForecastDB;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SWACityDB (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSNumber *isSelected;
-@property (nullable, nonatomic, retain) NSManagedObject *forecasts;
+@property (nullable, nonatomic, retain) SWAForecastDB *forecasts;
+
+@end
+
+@interface SWACityDB (CoreDataGeneratedAccessors)
+
+- (void)addForecastObject:(SWAForecastDB *)value;
+- (void)removeForecastObject:(SWAForecastDB *)value;
+- (void)addForecasts:(NSSet<SWAForecastDB *> *)values;
+- (void)removeForecasts:(NSSet<SWAForecastDB *> *)values;
 
 @end
 

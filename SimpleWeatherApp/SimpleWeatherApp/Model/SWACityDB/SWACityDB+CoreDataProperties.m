@@ -10,6 +10,7 @@
 //
 
 #import "SWACityDB+CoreDataProperties.h"
+#import "SWAForecastDB.h"
 
 @implementation SWACityDB (CoreDataProperties)
 

@@ -120,6 +120,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
                                                            inManagedObjectContext:self.managedObjectContext];
         newCity.name = cityName;
         newCity.isSelected = @(YES);
+        
+        
     }
     else if (citiesArray.count == 1)
     {
@@ -189,7 +191,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return fetchRequest;
 }
 
-
 #pragma mark - Utils
 
 - (NSURL *)applicationDocumentsDirectory
@@ -211,6 +212,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     }
     
     return nil;
+}
+
+- (void)removeAllForecastsAtCity:(SWACityDB *)city
+{
+    [city removeForecasts:city.forecasts];
+    
+    [self saveContext];
 }
 
 @end

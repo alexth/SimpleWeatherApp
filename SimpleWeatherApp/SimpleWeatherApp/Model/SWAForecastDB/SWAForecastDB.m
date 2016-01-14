@@ -11,6 +11,9 @@
 
 @implementation SWAForecastDB
 
-// Insert code here to add functionality to your managed object subclass
+@dynamic date;
+@dynamic temperature;
+@dynamic updateDate;
+@dynamic city;
 
 @end

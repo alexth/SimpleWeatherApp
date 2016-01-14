@@ -9,14 +9,22 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@class SWAForecastDB;
 
 @interface SWACityDB : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSNumber *isSelected;
+@property (nonatomic, retain) NSSet *forecasts;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@interface SWACityDB (CoreDataGeneratedAccessors)
 
-#import "SWACityDB+CoreDataProperties.h"
+- (void)addForecastObject:(SWAForecastDB *)value;
+- (void)removeForecastObject:(SWAForecastDB *)value;
+- (void)addForecasts:(NSSet *)values;
+- (void)removeForecasts:(NSSet *)values;
+
+@end
+

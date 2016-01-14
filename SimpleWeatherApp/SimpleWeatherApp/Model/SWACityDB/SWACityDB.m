@@ -10,6 +10,8 @@
 
 @implementation SWACityDB
 
-// Insert code here to add functionality to your managed object subclass
+@dynamic name;
+@dynamic isSelected;
+@dynamic forecasts;
 
 @end

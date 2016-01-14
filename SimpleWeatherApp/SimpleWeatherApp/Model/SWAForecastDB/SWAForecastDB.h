@@ -11,14 +11,11 @@
 
 @class SWACityDB;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface SWAForecastDB : NSManagedObject
 
-// Insert code here to declare functionality of your managed object subclass
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) NSNumber *temperature;
+@property (nonatomic, retain) NSDate *updateDate;
+@property (nonatomic, retain) SWACityDB *city;
 
 @end
-
-NS_ASSUME_NONNULL_END
-
-#import "SWAForecastDB+CoreDataProperties.h"

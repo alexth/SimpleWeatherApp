@@ -259,6 +259,27 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 - (NSString *)cityNameFromString:(NSString *)cityNameString
 {
+    NSArray *namesArray = [cityNameString componentsSeparatedByString:@" "];
+    if (namesArray.count == 1)
+    {
+        return cityNameString;
+    }
+    else
+    {
+        NSMutableString *resultString = [NSMutableString string];
+        [resultString setString:@""];
+        for (NSString *pieceString in namesArray)
+        {
+            if (pieceString != [namesArray lastObject])
+            {
+                [resultString appendString:@"+"];
+            }
+            [resultString appendString:pieceString];
+        }
+        
+        return [resultString copy];
+    }
+
     return nil;
 }
 

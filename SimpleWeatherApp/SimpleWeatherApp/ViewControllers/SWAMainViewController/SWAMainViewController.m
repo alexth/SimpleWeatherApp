@@ -117,7 +117,7 @@ heightForHeaderInSection:(NSInteger)section
 - (void)updateSelectedCityForecasts
 {
     __weak typeof(self) weakSelf = self;
-    [self.requestManager GETForecastForCity:self.selectedCity.name
+    [self.requestManager GETForecastForCity:[self.databaseManager cityNameFromString:self.selectedCity.name]
                                numberOfDays:@(kFutureForecastsCount)
                                successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
                                    

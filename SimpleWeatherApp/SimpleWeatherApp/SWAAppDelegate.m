@@ -16,7 +16,6 @@
 
 @implementation SWAAppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AFNetworkingLogger.sharedLogger startLogging];

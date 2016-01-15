@@ -12,15 +12,16 @@
 
 #import "SWACityDB.h"
 
-@interface SWACitiesListViewController () <UISearchBarDelegate, NSFetchedResultsControllerDelegate>
+@interface SWACitiesListViewController () <UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *citiesSearchBar;
 @property (nonatomic, weak) IBOutlet UITableView *citiesListTableView;
 
+@property (nonatomic, weak) NSFetchedResultsController *citiesFRC;
+
 @end
 
 static NSString * const kCitiesListTableViewCellIdentifier = @"citiesListTableViewCell";
-static const NSUInteger kCitiesListTableViewSectionsCount = 1;
 static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 
 @implementation SWACitiesListViewController
@@ -28,25 +29,51 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSError *error = nil;
+    BOOL performFetch = [[self citiesFRC] performFetch:&error];
+    if (!performFetch)
+    {
+        NSLog(@"Error! %@", [error localizedFailureReason]);
+        NSAssert(performFetch == NO, @"Instance of the FDProfile can not be created");
+    }
+}
+
+#pragma mark - FRC
+
+- (NSFetchedResultsController *)citiesFRC
+{
+    if (_citiesFRC)
+    {
+        return _citiesFRC;
+    }
+    _citiesFRC = [self.databaseManager citiesFRC];
+//    _citiesFRC.delegate = self;
+    
+    return _citiesFRC;
 }
 
 #pragma mark - TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return kCitiesListTableViewSectionsCount;
+    return [[self.citiesFRC sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.citiesFRC sections][section];
+    
+    return [sectionInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SWACitiesListTableViewCell *cell = (SWACitiesListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kCitiesListTableViewCellIdentifier forIndexPath:indexPath];
+    SWACityDB *city = [self.citiesFRC objectAtIndexPath:indexPath];
+    [cell cellWithCity:city];
     
     return cell;
 }
@@ -113,7 +140,7 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)applyStyle
 {
-    
+    //TODO: Design UI
 }
 
 @end

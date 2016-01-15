@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SWACityDB;
+
 @interface SWACitiesListTableViewCell : UITableViewCell
+
+- (void)cellWithCity:(SWACityDB *)city;
 
 @end

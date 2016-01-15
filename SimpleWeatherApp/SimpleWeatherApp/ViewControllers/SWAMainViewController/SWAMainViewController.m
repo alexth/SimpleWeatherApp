@@ -109,7 +109,7 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)applyStyle
 {
-    
+    //TODO: Design UI
 }
 
 - (void)refreshData

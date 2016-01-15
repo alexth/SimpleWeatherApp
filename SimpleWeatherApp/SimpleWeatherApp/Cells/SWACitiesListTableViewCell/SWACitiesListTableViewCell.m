@@ -8,6 +8,8 @@
 
 #import "SWACitiesListTableViewCell.h"
 
+#import "SWACityDB.h"
+
 @interface SWACitiesListTableViewCell ()
 
 @property (nonatomic, weak) IBOutlet UILabel *cityNameLabel;
@@ -17,5 +19,10 @@
 @implementation SWACitiesListTableViewCell
 
 #pragma mark - Setup
+
+- (void)cellWithCity:(SWACityDB *)city
+{
+    self.cityNameLabel.text = city.name;
+}
 
 @end

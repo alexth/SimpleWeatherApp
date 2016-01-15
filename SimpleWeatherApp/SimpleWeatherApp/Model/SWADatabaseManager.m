@@ -106,6 +106,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     }
 }
 
+// FetchedResultsController
+- (NSFetchedResultsController *)citiesFRC
+{
+    NSFetchRequest *fetchRequest = [self allCitiesFetchRequest];
+    
+    return [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest
+                                              managedObjectContext:[self managedObjectContext]
+                                                sectionNameKeyPath:nil
+                                                         cacheName:nil];
+}
+
 #pragma mark - CreateUpdates
 
 - (SWACityDB *)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary

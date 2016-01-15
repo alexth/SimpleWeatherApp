@@ -160,10 +160,22 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 - (NSArray *)fetchCityWithName:(NSString *)nameString
 {
-    NSFetchRequest *cityWithNameFetchRequest = [self cityWithNameFetchRequest:nameString];
     NSError *error = nil;
+    return [self.managedObjectContext executeFetchRequest:[self cityWithNameFetchRequest:nameString]
+                                                    error:&error];
+}
+
+- (SWACityDB *)fetchSelectedCity
+{
+    NSError *error = nil;
+    NSArray *fetchArray = [self.managedObjectContext executeFetchRequest:[self allCitiesFetchRequest]
+                                                                   error:&error];
+    if (fetchArray.count > 0)
+    {
+        return fetchArray[0];
+    }
     
-    return [self.managedObjectContext executeFetchRequest:cityWithNameFetchRequest error:&error];
+    return nil;
 }
 
 #pragma mark - Fetch Requests

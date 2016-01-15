@@ -23,6 +23,9 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
+// Fetches
+- (SWACityDB *)fetchSelectedCity;
+
 // FetchedResultsController
 - (NSFetchedResultsController *)citiesFRC;
 

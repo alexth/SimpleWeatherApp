@@ -44,6 +44,22 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
     [self refreshData];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    SWACityDB *selectedCity = [self.databaseManager fetchSelectedCity];
+    if (selectedCity)
+    {
+        self.selectedCity = selectedCity;
+        [self refreshData];
+    }
+    else
+    {
+        [self performSegueWithIdentifier:kToCitiesListSegue
+                                  sender:self];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:kToCitiesListSegue])
@@ -109,7 +125,7 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)applyStyle
 {
-    //TODO: Design UI
+    self.citiesButton.title = NSLocalizedString(@"Cities", nil);
 }
 
 - (void)refreshData

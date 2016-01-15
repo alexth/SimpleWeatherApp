@@ -208,6 +208,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="citiesButton" destination="1g1-dC-4RB" id="dx3-zv-drG"/>
                         <outlet property="cityNameLabel" destination="ZBF-KM-m7b" id="DQe-x6-Ex1"/>
                         <outlet property="dateLabel" destination="o3k-YH-4M7" id="rrm-uH-usv"/>
                         <outlet property="mainTableView" destination="17L-d0-96n" id="JPG-O8-ji0"/>

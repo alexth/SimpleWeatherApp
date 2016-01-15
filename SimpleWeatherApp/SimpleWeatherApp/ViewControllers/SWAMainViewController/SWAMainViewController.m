@@ -25,8 +25,6 @@
 @property (nonatomic, strong) SWACityDB *selectedCity;
 @property (nonatomic, strong) NSArray *forecastsArray;
 
-- (IBAction)citiesButtonDidPressed:(UIButton *)button;
-
 @end
 
 static NSString * const kMainTableViewCellIdentifier = @"mainTableViewCell";
@@ -116,9 +114,23 @@ heightForHeaderInSection:(NSInteger)section
 
 #pragma mark - Actions
 
-- (IBAction)citiesButtonDidPressed:(UIButton *)button
+- (void)updateSelectedCityForecasts
 {
-    
+    __weak typeof(self) weakSelf = self;
+    [self.requestManager GETForecastForCity:self.selectedCity.name
+                               numberOfDays:@(kFutureForecastsCount)
+                               successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
+                                   
+                                   if (!error)
+                                   {
+                                       SWACityDB *city = [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
+                                       [weakSelf citySelected:city];
+                                   }
+                                   else
+                                   {
+                                       //TODO: Handle error
+                                   }
+                               }];
 }
 
 #pragma mark - Utils

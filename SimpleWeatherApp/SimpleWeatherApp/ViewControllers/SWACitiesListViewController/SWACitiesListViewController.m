@@ -175,20 +175,6 @@ heightForHeaderInSection:(NSInteger)section
 
 #pragma mark - Search Bar Delegate
 
-- (void)searchBar:(UISearchBar *)searchBar
-    textDidChange:(NSString *)searchText
-{
-    if ([searchText length] == 0)
-    {
-        
-    }
-    else
-    {
-        
-    }
-    [self.citiesListTableView reloadData];
-}
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     if (searchBar.text.length > 0)
@@ -199,6 +185,7 @@ heightForHeaderInSection:(NSInteger)section
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    searchBar.text = nil;
     [searchBar resignFirstResponder];
 }
 

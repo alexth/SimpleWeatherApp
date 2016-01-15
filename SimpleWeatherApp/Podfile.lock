@@ -22,10 +22,12 @@ PODS:
     - AFNetworking/NSURLSession
   - AFNetworkingLogger (0.0.17):
     - AFNetworking
+  - CRToast (0.0.9)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - AFNetworkingLogger (from `https://github.com/stanislaw/AFNetworkingLogger`)
+  - CRToast
 
 EXTERNAL SOURCES:
   AFNetworkingLogger:
@@ -39,5 +41,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   AFNetworkingLogger: 93bc0d08779b928370520ea5450df7d4c6568c5d
+  CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
 
 COCOAPODS: 0.39.0

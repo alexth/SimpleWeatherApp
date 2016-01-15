@@ -26,6 +26,8 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 
 @implementation SWACitiesListViewController
 
+#pragma mark - View Lifecycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -153,6 +155,12 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 
 #pragma mark - TableView Delegate
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    SWACityDB *selectedCity = [self.citiesFRC objectAtIndexPath:indexPath];
+    [self forecastsForCityWithName:selectedCity.name];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView
 heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -185,28 +193,36 @@ heightForHeaderInSection:(NSInteger)section
 {
     if (searchBar.text.length > 0)
     {
-        __weak typeof(self) weakSelf = self;
-        [self.requestManager GETForecastForCity:searchBar.text
-                                   numberOfDays:@(kFutureForecastsCount)
-                                   successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
-                                      
-                                       if (!error)
-                                       {
-                                           SWACityDB *city = [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
-                                           [weakSelf.delegate citySelected:city];
-                                           [weakSelf.navigationController popViewControllerAnimated:YES];
-                                       }
-                                       else
-                                       {
-                                           //TODO: Handle error
-                                       }
-                                   }];
+        [self forecastsForCityWithName:searchBar.text];
     }
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+}
+
+#pragma mark - Actions
+
+- (void)forecastsForCityWithName:(NSString *)cityNameString
+{
+    __weak typeof(self) weakSelf = self;
+    [self.requestManager GETForecastForCity:cityNameString
+                               numberOfDays:@(kFutureForecastsCount)
+                               successBlock:^(BOOL success, NSDictionary *dataDictionary, NSError *error) {
+                                   
+                                   if (!error)
+                                   {
+                                       SWACityDB *city = [weakSelf.databaseManager createOrUpdateCityFromDictionary:dataDictionary];
+                                       [weakSelf.delegate citySelected:city];
+                                       [weakSelf.navigationController popViewControllerAnimated:YES];
+                                   }
+                                   else
+                                   {
+                                       //TODO: Handle error
+                                   }
+                               }];
+
 }
 
 #pragma mark - Utils

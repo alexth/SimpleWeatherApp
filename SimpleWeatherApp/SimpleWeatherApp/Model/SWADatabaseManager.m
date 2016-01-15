@@ -154,6 +154,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
         NSLog(@"ERROR! More than one city with a given name");
     }
     
+    [self markAllCitiesAsNotSelected];
+    
     [self saveContext];
     
     return city;
@@ -314,6 +316,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
               kCRToastTextKey : text,
               kCRToastBackgroundColorKey : [UIColor orangeColor],
               };
+}
+
+- (void)markAllCitiesAsNotSelected
+{
+    NSBatchUpdateRequest *batchUpdateRequest = [[NSBatchUpdateRequest alloc]initWithEntityName:kCityEntityName];
+    batchUpdateRequest.predicate = [NSPredicate predicateWithFormat:@"isSelected == %@", @(YES)];
+    batchUpdateRequest.propertiesToUpdate = @{@"isSelected" : @(NO)};
+    batchUpdateRequest.resultType = NSUpdatedObjectsCountResultType;
+    NSBatchUpdateResult *result = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchUpdateRequest error:nil];
+    NSLog(@"%@ objects updated", result.result);
 }
 
 @end

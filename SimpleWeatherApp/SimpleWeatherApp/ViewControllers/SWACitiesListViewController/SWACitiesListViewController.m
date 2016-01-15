@@ -10,6 +10,8 @@
 
 #import "SWACitiesListTableViewCell.h"
 
+#import "CRToast.h"
+
 #import "SWACityDB.h"
 
 @interface SWACitiesListViewController () <UISearchBarDelegate, NSFetchedResultsControllerDelegate>
@@ -37,7 +39,6 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
     if (!performFetch)
     {
         NSLog(@"Error! %@", [error localizedFailureReason]);
-        NSAssert(performFetch == NO, @"Instance of the FDProfile can not be created");
     }
 }
 
@@ -206,7 +207,8 @@ heightForHeaderInSection:(NSInteger)section
                                    }
                                    else
                                    {
-                                       //TODO: Handle error
+                                       [CRToastManager showNotificationWithOptions:[weakSelf.databaseManager setupDefaultToastWithText:NSLocalizedString(@"Wrong city name!", nil)]
+                                                                   completionBlock:nil];
                                    }
                                }];
 

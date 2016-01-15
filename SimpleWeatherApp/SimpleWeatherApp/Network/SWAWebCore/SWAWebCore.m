@@ -16,7 +16,7 @@ typedef void (^AFSuccessBlock_t)(AFHTTPRequestOperation *operation, id responseO
 
 @interface SWAWebCore ()
 
-/// Decorator for handling 400 HTTP error 
+/// Decorator for handling wrong city HTTP error 
 + (AFHTTPRequestOperation *)requestOperationForRequest:(NSURLRequest *)request
                                 successCompletionBlock:(AFSuccessBlock_t)success
                                                failure:(AFFailureBlock_t)failure;
@@ -27,8 +27,8 @@ static NSString * const kGETRequestMethod = @"GET";
 static NSString * const kPOSTRequestMethod = @"POST";
 static NSString * const kDELETERequestMethod = @"DELETE";
 static NSString * const kPATCHRequestMethod = @"PATCH";
-static NSString * const kBadRequestErrorDomain = @"com.coveveyor.http_error_400";
-static const NSUInteger kBadRequestError = 400;
+static NSString * const kBadRequestErrorDomain = @"com.coveveyor.http_error_-1002";
+static const NSUInteger kBadCityRequestError = -1002;
 
 @implementation SWAWebCore
 
@@ -237,7 +237,7 @@ static const NSUInteger kBadRequestError = 400;
         
         NSInteger errorCode = [operation.response statusCode];
 
-        if (errorCode == kBadRequestError)
+        if (errorCode == kBadCityRequestError)
         {
 //TODO: handle error
         }

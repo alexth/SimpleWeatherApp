@@ -60,7 +60,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="3NM-Tr-XME"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <outlet property="delegate" destination="xbM-ny-NNP" id="t26-1p-yFQ"/>
                                 </connections>

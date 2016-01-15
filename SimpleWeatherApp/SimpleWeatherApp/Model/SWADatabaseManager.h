@@ -33,6 +33,8 @@
 - (SWACityDB *)createOrUpdateCityFromDictionary:(NSDictionary *)dataDictionary;
 
 // Utils
+- (NSString *)cityNameFromString:(NSString *)cityNameString;
 - (NSString *)dateStringFromDate:(NSDate *)date;
+- (NSDictionary *)setupDefaultToastWithText:(NSString *)text;
 
 @end

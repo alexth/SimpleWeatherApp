@@ -9,6 +9,8 @@
 #import "SWADatabaseManager.h"
 #import "SynthesizeSingleton.h"
 
+#import "CRToast.h"
+
 #import "SWACityDB.h"
 #import "SWAForecastDB.h"
 
@@ -125,7 +127,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     
     NSDictionary *responseDictionary = dataDictionary[@"data"];
     NSString *cityName = [self cityNameFromResponseDictionary:responseDictionary];
-    NSArray *citiesArray = [self fetchCityWithName:dataDictionary[cityName]];
+    NSArray *citiesArray = [self fetchCityWithName:cityName];
     if (citiesArray.count == 0)
     {
         city = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
@@ -149,6 +151,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     else
     {
         //TODO: track doublings of cities entities
+        NSLog(@"ERROR! More than one city with a given name");
     }
     
     [self saveContext];
@@ -254,6 +257,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return [dateFormatter dateFromString:dateString];
 }
 
+- (NSString *)cityNameFromString:(NSString *)cityNameString
+{
+    return nil;
+}
+
 - (NSString *)dateStringFromDate:(NSDate *)date
 {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
@@ -277,6 +285,14 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     }
     
     [self saveContext];
+}
+
+- (NSDictionary *)setupDefaultToastWithText:(NSString *)text
+{
+    return  @{
+              kCRToastTextKey : text,
+              kCRToastBackgroundColorKey : [UIColor orangeColor],
+              };
 }
 
 @end

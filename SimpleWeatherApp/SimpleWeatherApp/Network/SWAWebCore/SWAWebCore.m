@@ -40,11 +40,13 @@ static const NSUInteger kBadCityRequestError = -1002;
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:kGETRequestMethod];
-    return [self requestOperationForRequest:request successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    return [self requestOperationForRequest:request
+                     successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (success)
         {
-            success([NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil]);
+            success([NSJSONSerialization JSONObjectWithData:responseObject
+                                                    options:0 error:nil]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -63,7 +65,9 @@ static const NSUInteger kBadCityRequestError = -1002;
                                        failure:(FailureBlock)failure
 {
     NSError *jsonError;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&jsonError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters
+                                                       options:0
+                                                         error:&jsonError];
     if (jsonError != nil)
     {
         failure(jsonError);
@@ -74,11 +78,14 @@ static const NSUInteger kBadCityRequestError = -1002;
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:kPOSTRequestMethod];
     
-    return [self requestOperationForRequest:request successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    return [self requestOperationForRequest:request
+                     successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (success)
         {
-            success([NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil]);
+            success([NSJSONSerialization JSONObjectWithData:responseObject
+                                                    options:0
+                                                      error:nil]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -107,11 +114,14 @@ static const NSUInteger kBadCityRequestError = -1002;
 
     [request setHTTPMethod:kDELETERequestMethod];
     
-    return [self requestOperationForRequest:request successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    return [self requestOperationForRequest:request
+                     successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (success)
         {
-            success([NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil]);
+            success([NSJSONSerialization JSONObjectWithData:responseObject
+                                                    options:0
+                                                      error:nil]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -130,7 +140,9 @@ static const NSUInteger kBadCityRequestError = -1002;
                                         failure:(FailureBlock)failure
 {
     NSError *jsonError;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&jsonError];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters
+                                                       options:0
+                                                         error:&jsonError];
     if (jsonError != nil)
     {
         failure(jsonError);
@@ -142,11 +154,14 @@ static const NSUInteger kBadCityRequestError = -1002;
     [request setHTTPBody:jsonData];
     [request setHTTPMethod:kPATCHRequestMethod];
     
-    return [self requestOperationForRequest:request successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+    return [self requestOperationForRequest:request
+                     successCompletionBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         if (success)
         {
-            success([NSJSONSerialization JSONObjectWithData:responseObject options:0 error:nil]);
+            success([NSJSONSerialization JSONObjectWithData:responseObject
+                                                    options:0
+                                                      error:nil]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -196,11 +211,16 @@ static const NSUInteger kBadCityRequestError = -1002;
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
     
-    AFHTTPRequestOperation *uploadOperation = [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    AFHTTPRequestOperation *uploadOperation = [manager POST:URLString
+                                                 parameters:parameters
+                                  constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         if (imageData)
         {
-            [formData appendPartWithFileData:imageData name:@"picture" fileName:@"newimage.jpg" mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:imageData
+                                        name:@"picture"
+                                    fileName:@"newimage.jpg"
+                                    mimeType:@"image/jpeg"];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -241,11 +261,14 @@ static const NSUInteger kBadCityRequestError = -1002;
         {
 //TODO: handle error
         }
-        NSError *httpError = [NSError errorWithDomain:kBadRequestErrorDomain code:errorCode userInfo:nil];
+        NSError *httpError = [NSError errorWithDomain:kBadRequestErrorDomain
+                                                 code:errorCode
+                                             userInfo:nil];
         failure(operation, httpError);
     };
     
-    [operation setCompletionBlockWithSuccess:decoratedSuccess failure:decoratedFailure];
+    [operation setCompletionBlockWithSuccess:decoratedSuccess
+                                     failure:decoratedFailure];
     
     return operation;
 }

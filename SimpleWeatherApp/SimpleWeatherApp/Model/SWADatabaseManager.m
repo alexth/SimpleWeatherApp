@@ -115,7 +115,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     }
 }
 
-// FetchedResultsController
+#pragma mark - FetchedResultsController
+
 - (NSFetchedResultsController *)citiesFRC
 {
     NSFetchRequest *fetchRequest = [self allCitiesFetchRequest];
@@ -161,7 +162,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
         NSLog(@"ERROR! More than one city with a given name");
     }
     
-    [self markAllCitiesAsNotSelected];
+    [self markAllCitiesAsNotSelectedExceptCity:city];
     
     [self saveContext];
     
@@ -180,11 +181,15 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 - (SWACityDB *)fetchSelectedCity
 {
     NSError *error = nil;
-    NSArray *fetchArray = [self.managedObjectContext executeFetchRequest:[self allCitiesFetchRequest]
+    NSArray *fetchArray = [self.managedObjectContext executeFetchRequest:[self selectedCityFetchRequest]
                                                                    error:&error];
     if (fetchArray.count > 0)
     {
         return fetchArray[0];
+    }
+    else
+    {
+        //TODO: handle doubling of selected cities
     }
     
     return nil;
@@ -329,8 +334,27 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
               };
 }
 
-- (void)markAllCitiesAsNotSelected
+- (void)markAllCitiesAsNotSelectedExceptCity:(SWACityDB *)city
 {
+//    NSArray * citiesArray = [self.managedObjectContext executeFetchRequest:[self allCitiesFetchRequest]
+//                                                                     error:NULL];
+//    for (SWACityDB *fetchedCity in citiesArray)
+//    {
+//        if (![fetchedCity isEqual:city])
+//        {
+//            fetchedCity.isSelected = @(NO);
+//            NSLog(@"%@", fetchedCity);
+//        }
+//    }
+//    NSError * error = NULL;
+//    [self.managedObjectContext save:&error];
+//    if (error)
+//    {
+//        //TODO: handle error
+//    }
+    
+    //TODO: inspect why batch update is not working correctly
+    
     NSBatchUpdateRequest *batchUpdateRequest = [[NSBatchUpdateRequest alloc]initWithEntityName:kCityEntityName];
     batchUpdateRequest.predicate = [NSPredicate predicateWithFormat:@"isSelected == %@", @(YES)];
     batchUpdateRequest.propertiesToUpdate = @{@"isSelected" : @(NO)};
@@ -343,7 +367,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     }
     else
     {
-        NSLog(@"%@ objects updated", batchUpdateResult.result);
+        NSLog(@"%@ cities updated", batchUpdateResult.result);
     }
 }
 

@@ -20,5 +20,6 @@ extern NSString * const kForecastEntityName;
 
 // Web
 extern const int kFutureForecastsCount;
+extern const int kWrongCityResponseCode;
 extern NSString * const kServerURLAddress;
 extern NSString * const kAuthKey;

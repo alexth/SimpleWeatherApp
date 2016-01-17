@@ -250,7 +250,22 @@ static const NSUInteger kBadCityRequestError = -1002;
     
     id decoratedSuccess = ^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        success(operation, responseObject);
+        
+        NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                                           options:0 error:nil];
+        NSArray *errorArray = responseDictionary[@"data"][@"error"];
+        if (errorArray)
+        {
+            NSDictionary *errorDictionary = errorArray[0];
+            NSError *httpError = [NSError errorWithDomain:errorDictionary[@"msg"]
+                                                     code:kWrongCityResponseCode
+                                                 userInfo:nil];
+            failure(operation, httpError);
+        }
+        else
+        {
+            success(operation, responseObject);
+        }
     };
     
     id decoratedFailure = ^(AFHTTPRequestOperation *operation, NSError *error) {

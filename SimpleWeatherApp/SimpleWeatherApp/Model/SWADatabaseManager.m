@@ -20,6 +20,12 @@
 
 static NSString * const kCityNameProperty = @"name";
 static NSString * const kForecastDateProperty = @"date";
+static NSString * const kRequestProperty = @"request";
+static NSString * const kQueryProperty = @"query";
+static NSString * const kWeatherProperty = @"weather";
+static NSString * const kDateProperty = @"date";
+static NSString * const kMinTemperatureProperty = @"mintempC";
+static NSString * const kMaxTemperatureProperty = @"maxtempC";
 
 @implementation SWADatabaseManager
 SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
@@ -252,11 +258,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 - (NSString *)cityNameFromResponseDictionary:(NSDictionary *)responseDictionary
 {
-    NSArray *cityDataArray = responseDictionary[@"request"];
+    NSArray *cityDataArray = responseDictionary[kRequestProperty];
     if (cityDataArray.count > 0)
     {
         NSDictionary *cityDataDictionary = cityDataArray[0];
-        return cityDataDictionary[@"query"];
+        return cityDataDictionary[kQueryProperty];
     }
     else
     {
@@ -276,6 +282,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 - (NSString *)cityNameFromString:(NSString *)cityNameString
 {
+    // TODO: improve validating name
     NSArray *namesArray = [cityNameString componentsSeparatedByString:@" "];
     if (namesArray.count == 1)
     {
@@ -311,13 +318,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 - (void)forecastsData:(NSDictionary *)forecastsDictionary
                toCity:(SWACityDB *)city
 {
-    for (NSDictionary *forecastDictionary in forecastsDictionary[@"weather"])
+    for (NSDictionary *forecastDictionary in forecastsDictionary[kWeatherProperty])
     {
         SWAForecastDB *forecast = [NSEntityDescription insertNewObjectForEntityForName:kForecastEntityName
                                                                 inManagedObjectContext:self.managedObjectContext];
-        forecast.date = [self convertServerDate:forecastDictionary[@"date"]];
-        forecast.minTemperature = @([forecastDictionary[@"mintempC"] integerValue]);
-        forecast.maxTemperature = @([forecastDictionary[@"maxtempC"] integerValue]);
+        forecast.date = [self convertServerDate:forecastDictionary[kDateProperty]];
+        forecast.minTemperature = @([forecastDictionary[kMinTemperatureProperty] integerValue]);
+        forecast.maxTemperature = @([forecastDictionary[kMaxTemperatureProperty] integerValue]);
         forecast.updateDate = [NSDate date];
         
         [city addForecastsObject:forecast];

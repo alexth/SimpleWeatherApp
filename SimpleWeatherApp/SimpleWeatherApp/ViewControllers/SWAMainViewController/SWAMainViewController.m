@@ -58,7 +58,8 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
     }
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender
 {
     if ([segue.identifier isEqualToString:kToCitiesListSegue])
     {
@@ -83,7 +84,8 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-    SWAMainTableViewCell *cell = (SWAMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kMainTableViewCellIdentifier forIndexPath:indexPath];
+    SWAMainTableViewCell *cell = (SWAMainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:kMainTableViewCellIdentifier
+                                                                                         forIndexPath:indexPath];
     SWAForecastDB *forecast = self.forecastsArray[indexPath.row];
     [cell cellWithForecast:forecast];
     

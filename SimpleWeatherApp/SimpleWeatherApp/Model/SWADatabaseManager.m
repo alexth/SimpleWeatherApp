@@ -37,7 +37,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SimpleWeatherApp" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SimpleWeatherApp"
+                                              withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     return _managedObjectModel;
@@ -57,14 +58,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"SimpleWeatherApp.sqlite"];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error])
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:nil
+                                                           error:&error])
     {
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";
         dict[NSLocalizedFailureReasonErrorKey] = failureReason;
         dict[NSUnderlyingErrorKey] = error;
-        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN" code:9999 userInfo:dict];
+        error = [NSError errorWithDomain:@"YOUR_ERROR_DOMAIN"
+                                    code:9999
+                                userInfo:dict];
         // Replace this with code to handle the error appropriately.
         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
@@ -131,7 +138,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     if (citiesArray.count == 0)
     {
         city = [NSEntityDescription insertNewObjectForEntityForName:kCityEntityName
-                                                           inManagedObjectContext:self.managedObjectContext];
+                                             inManagedObjectContext:self.managedObjectContext];
         city.name = cityName;
         city.isSelected = @(YES);
         
@@ -211,7 +218,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     [fetchRequest setEntity:[NSEntityDescription entityForName:kCityEntityName
                                         inManagedObjectContext:self.managedObjectContext]];
     [fetchRequest setPredicate:predicate];
-    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kCityNameProperty ascending:YES]]];
+    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kCityNameProperty
+                                                                  ascending:YES]]];
     
     return fetchRequest;
 }
@@ -223,7 +231,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
                                         inManagedObjectContext:self.managedObjectContext]];
     [fetchRequest setFetchLimit:kFutureForecastsCount];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"city == %@", city]];
-    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kForecastDateProperty ascending:YES]]];
+    [fetchRequest setSortDescriptors:@[[[NSSortDescriptor alloc]initWithKey:kForecastDateProperty
+                                                                  ascending:YES]]];
     
     return fetchRequest;
 }
@@ -232,7 +241,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 - (NSURL *)applicationDocumentsDirectory
 {
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory
+                                                   inDomains:NSUserDomainMask] lastObject];
 }
 
 - (NSString *)cityNameFromResponseDictionary:(NSDictionary *)responseDictionary
@@ -293,7 +303,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     return [dateFormatter stringFromDate:date];
 }
 
-- (void)forecastsData:(NSDictionary *)forecastsDictionary toCity:(SWACityDB *)city
+- (void)forecastsData:(NSDictionary *)forecastsDictionary
+               toCity:(SWACityDB *)city
 {
     for (NSDictionary *forecastDictionary in forecastsDictionary[@"weather"])
     {
@@ -324,8 +335,16 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
     batchUpdateRequest.predicate = [NSPredicate predicateWithFormat:@"isSelected == %@", @(YES)];
     batchUpdateRequest.propertiesToUpdate = @{@"isSelected" : @(NO)};
     batchUpdateRequest.resultType = NSUpdatedObjectsCountResultType;
-    NSBatchUpdateResult *result = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchUpdateRequest error:nil];
-    NSLog(@"%@ objects updated", result.result);
+    NSBatchUpdateResult *batchUpdateResult = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchUpdateRequest
+                                                                                                        error:nil];
+    if (!batchUpdateResult)
+    {
+        //TODO: handle issues
+    }
+    else
+    {
+        NSLog(@"%@ objects updated", batchUpdateResult.result);
+    }
 }
 
 @end

@@ -32,6 +32,8 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 
 - (void)viewDidLoad
 {
+    self.citiesListTableView.allowsMultipleSelectionDuringEditing = NO;
+    
     [super viewDidLoad];
     
     NSError *error = nil;
@@ -160,6 +162,24 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
 {
     SWACityDB *selectedCity = [self.citiesFRC objectAtIndexPath:indexPath];
     [self forecastsForCityWithName:selectedCity.name];
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        NSManagedObjectContext *managedObjectContext = [self.databaseManager managedObjectContext];
+        
+        [managedObjectContext deleteObject:[self.citiesFRC objectAtIndexPath:indexPath]];
+        
+        NSError *error = nil;
+        if (![managedObjectContext save:&error])
+        {
+            //TODO: handle errorr
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView

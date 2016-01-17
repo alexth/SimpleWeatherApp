@@ -19,7 +19,7 @@
 @property (nonatomic, weak) IBOutlet UISearchBar *citiesSearchBar;
 @property (nonatomic, weak) IBOutlet UITableView *citiesListTableView;
 
-@property (nonatomic, weak) NSFetchedResultsController *citiesFRC;
+@property (nonatomic, strong) NSFetchedResultsController *citiesFRC;
 
 @end
 
@@ -35,7 +35,7 @@ static const CGFloat kCitiesListTableViewCellHeight = 50.0f;
     [super viewDidLoad];
     
     NSError *error = nil;
-    BOOL performFetch = [[self citiesFRC] performFetch:&error];
+    BOOL performFetch = [[self citiesFRC]performFetch:&error];
     if (!performFetch)
     {
         NSLog(@"Error! %@", [error localizedFailureReason]);

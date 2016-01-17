@@ -39,12 +39,7 @@ static const CGFloat kMainTableViewCellHeight = 50.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self refreshData];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+    
     SWACityDB *selectedCity = [self.databaseManager fetchSelectedCity];
     if (selectedCity)
     {

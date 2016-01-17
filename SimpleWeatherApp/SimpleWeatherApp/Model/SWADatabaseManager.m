@@ -336,39 +336,39 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(SWADatabaseManager)
 
 - (void)markAllCitiesAsNotSelectedExceptCity:(SWACityDB *)city
 {
-//    NSArray * citiesArray = [self.managedObjectContext executeFetchRequest:[self allCitiesFetchRequest]
-//                                                                     error:NULL];
-//    for (SWACityDB *fetchedCity in citiesArray)
-//    {
-//        if (![fetchedCity isEqual:city])
-//        {
-//            fetchedCity.isSelected = @(NO);
-//            NSLog(@"%@", fetchedCity);
-//        }
-//    }
-//    NSError * error = NULL;
-//    [self.managedObjectContext save:&error];
-//    if (error)
-//    {
-//        //TODO: handle error
-//    }
+    NSArray * citiesArray = [self.managedObjectContext executeFetchRequest:[self allCitiesFetchRequest]
+                                                                     error:NULL];
+    for (SWACityDB *fetchedCity in citiesArray)
+    {
+        if (![fetchedCity isEqual:city])
+        {
+            fetchedCity.isSelected = @(NO);
+            NSLog(@"%@", fetchedCity);
+        }
+    }
+    NSError * error = NULL;
+    [self.managedObjectContext save:&error];
+    if (error)
+    {
+        //TODO: handle error
+    }
     
     //TODO: inspect why batch update is not working correctly
     
-    NSBatchUpdateRequest *batchUpdateRequest = [[NSBatchUpdateRequest alloc]initWithEntityName:kCityEntityName];
-    batchUpdateRequest.predicate = [NSPredicate predicateWithFormat:@"isSelected == %@", @(YES)];
-    batchUpdateRequest.propertiesToUpdate = @{@"isSelected" : @(NO)};
-    batchUpdateRequest.resultType = NSUpdatedObjectsCountResultType;
-    NSBatchUpdateResult *batchUpdateResult = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchUpdateRequest
-                                                                                                        error:nil];
-    if (!batchUpdateResult)
-    {
-        //TODO: handle issues
-    }
-    else
-    {
-        NSLog(@"%@ cities updated", batchUpdateResult.result);
-    }
+//    NSBatchUpdateRequest *batchUpdateRequest = [[NSBatchUpdateRequest alloc]initWithEntityName:kCityEntityName];
+//    batchUpdateRequest.predicate = [NSPredicate predicateWithFormat:@"isSelected == %@", @(YES)];
+//    batchUpdateRequest.propertiesToUpdate = @{@"isSelected" : @(NO)};
+//    batchUpdateRequest.resultType = NSUpdatedObjectsCountResultType;
+//    NSBatchUpdateResult *batchUpdateResult = (NSBatchUpdateResult *)[self.managedObjectContext executeRequest:batchUpdateRequest
+//                                                                                                        error:nil];
+//    if (!batchUpdateResult)
+//    {
+//        //TODO: handle issues
+//    }
+//    else
+//    {
+//        NSLog(@"%@ cities updated", batchUpdateResult.result);
+//    }
 }
 
 @end
